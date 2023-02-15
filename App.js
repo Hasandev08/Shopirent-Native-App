@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View } from 'react-native'
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { NavigationContainer } from '@react-navigation/native'
+
+import HomeScreen from './app/screens/HomeScreen'
+
+import colors from './app/config/colors'
+
+const Tab = createBottomTabNavigator()
+const TabNavigator = () => (
+  <Tab.Navigator>
+    <Tab.Screen name='HomeScreen' component={HomeScreen} />
+  </Tab.Navigator>
+)
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={styles.background}>
+      <NavigationContainer>
+        <TabNavigator />
+      </NavigationContainer>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
+    backgroundColor: colors.background,
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
-});
+})
