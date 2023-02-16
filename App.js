@@ -1,23 +1,16 @@
 import { Platform, StatusBar, StyleSheet, View } from 'react-native'
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import TabNavigator from './app/navigation/TabNavigator'
+
 import { NavigationContainer } from '@react-navigation/native'
 
-import HomeScreen from './app/screens/HomeScreen'
-
+import navigationTheme from './app/navigation/navigationTheme'
 import colors from './app/config/colors'
-
-const Tab = createBottomTabNavigator()
-const TabNavigator = () => (
-  <Tab.Navigator>
-    <Tab.Screen name='HomeScreen' component={HomeScreen} />
-  </Tab.Navigator>
-)
 
 export default function App() {
   return (
     <View style={styles.background}>
-      <NavigationContainer>
+      <NavigationContainer theme={navigationTheme}>
         <TabNavigator />
       </NavigationContainer>
     </View>
