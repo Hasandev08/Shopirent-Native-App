@@ -4,10 +4,15 @@ import { TextInput, View } from 'react-native'
 
 import { styles } from './style'
 
-function SearchBar(props) {
+function SearchBar({ input, setInput }) {
   return (
     <View>
-      <TextInput style={styles.search} placeholder='Search' />
+      <TextInput
+        style={styles.search}
+        placeholder='Search'
+        value={input}
+        onChangeText={(text) => setInput(text)}
+      />
     </View>
   )
 }

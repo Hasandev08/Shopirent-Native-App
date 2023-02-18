@@ -1,26 +1,25 @@
 import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import AccountScreen from '../screens/AccountScreen'
 import HomeScreen from '../screens/HomeScreen'
-import NotificationScreen from '../screens/CartScreen'
+import SearchScreen from '../screens/SearchScreen'
 
-import CartButton from '../components/CartButton'
+import SearchButton from '../components/SearchButton'
+
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import colors from '../config/colors'
-
-import { Ionicons } from '@expo/vector-icons'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator()
 
 const TabNavigator = () => (
-  <Tab.Navigator initialRouteName='Home'>
+  <Tab.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
     <Tab.Screen
       name='Home'
       component={HomeScreen}
       options={{
-        headerShown: false,
         tabBarIcon: () => <MaterialCommunityIcons name='home' color={colors.primary} size={32} />,
         tabBarLabel: () => {
           return null
@@ -28,22 +27,19 @@ const TabNavigator = () => (
       }}
     />
     <Tab.Screen
-      name='Notifications'
-      component={NotificationScreen}
-      options={{
-        headerShown: false,
-        tabBarButton: () => <CartButton />,
-        tabBarIcon: () => <AntDesign name='shoppingcart' size={32} color={colors.white} />,
+      name='Search'
+      component={SearchScreen}
+      options={({ navigation }) => ({
+        tabBarButton: () => <SearchButton onPress={() => navigation.navigate('Search')} />,
         tabBarLabel: () => {
           return null
         },
-      }}
+      })}
     />
     <Tab.Screen
       name='Account'
       component={AccountScreen}
       options={{
-        headerShown: false,
         tabBarIcon: () => <MaterialCommunityIcons name='home' color={colors.primary} size={32} />,
         tabBarLabel: () => {
           return null

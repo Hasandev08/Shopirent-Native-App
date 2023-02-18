@@ -1,0 +1,58 @@
+export const popularList = [
+  {
+    id: '1',
+    title: 'Bridal Dress',
+    image: require('../../assets/image1.jpg'),
+    price: 1000,
+    rating: 4.9,
+  },
+  {
+    id: '2',
+    title: 'Mehndi Dress',
+    image: require('../../assets/image2.jpg'),
+    price: 1000,
+    rating: 4.9,
+  },
+  {
+    id: '3',
+    title: 'Barat Dress',
+    image: require('../../assets/image3.jpg'),
+    price: 1000,
+    rating: 4.9,
+  },
+  {
+    id: '4',
+    title: 'Walima Dress',
+    image: require('../../assets/image4.jpg'),
+    price: 1000,
+    rating: 4.9,
+  },
+  {
+    id: '5',
+    title: 'Mayun Dress',
+    image: require('../../assets/image4.jpg'),
+    price: 1000,
+    rating: 4.9,
+  },
+  {
+    id: '6',
+    title: 'Sada Dress',
+    image: require('../../assets/image3.jpg'),
+    price: 1000,
+    rating: 4.9,
+  },
+  {
+    id: '7',
+    title: 'Fazool Dress',
+    image: require('../../assets/image1.jpg'),
+    price: 1000,
+    rating: 4.9,
+  },
+  {
+    id: '8',
+    title: 'Behtareen Dress',
+    image: require('../../assets/image2.jpg'),
+    price: 1000,
+    rating: 4.9,
+  },
+]

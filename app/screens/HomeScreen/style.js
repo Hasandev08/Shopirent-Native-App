@@ -1,15 +1,17 @@
 import { StyleSheet } from 'react-native'
 
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
+import colors from '../../config/colors'
 
 export const styles = StyleSheet.create({
   homeContainer: {
+    flex: 1,
     marginHorizontal: RFPercentage(3),
   },
   homeHeading: {
-    color: 'rgb(122, 141, 156)',
+    color: colors.secondary,
     fontSize: RFValue(18),
     fontWeight: 'bold',
-    marginVertical: RFPercentage(3),
+    marginVertical: RFPercentage(1.5),
   },
 })

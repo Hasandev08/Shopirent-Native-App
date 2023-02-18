@@ -5,7 +5,7 @@ import { Text, View } from 'react-native'
 function AccountScreen(props) {
   return (
     <View>
-      <Text>Hello</Text>
+      <Text>Account</Text>
     </View>
   )
 }
