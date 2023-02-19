@@ -7,7 +7,9 @@ export const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.white,
     borderRadius: RFValue(10),
+    elevation: 2,
     height: RFPercentage(30),
+    marginBottom: RFPercentage(1),
     marginRight: RFValue(5),
     width: RFPercentage(18),
   },

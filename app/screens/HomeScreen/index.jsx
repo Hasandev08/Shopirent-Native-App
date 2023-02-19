@@ -5,6 +5,7 @@ import Categories from '../../components/Categories'
 import PopularItemList from '../../components/PopularItemList'
 import SaleItemList from '../../components/SaleItemList'
 
+import { categories } from '../../config/categories'
 import { popularList } from '../../config/popularList'
 import { saleItem } from '../../config/saleList'
 import { styles } from './style'
@@ -13,7 +14,7 @@ function HomeScreen(props) {
   return (
     <ScrollView scrollEnabled style={styles.homeContainer}>
       <Text style={styles.homeHeading}>Category</Text>
-      <Categories />
+      <Categories categories={categories} />
       <Text style={styles.homeHeading}>Sale Discount</Text>
       <FlatList
         data={saleItem}

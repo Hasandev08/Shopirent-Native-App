@@ -8,7 +8,7 @@ import SearchButton from '../components/SearchButton'
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
 
 import colors from '../config/colors'
 
@@ -40,7 +40,7 @@ const TabNavigator = () => (
       name='Account'
       component={AccountScreen}
       options={{
-        tabBarIcon: () => <MaterialCommunityIcons name='home' color={colors.primary} size={32} />,
+        tabBarIcon: () => <MaterialIcons name='account-circle' color={colors.primary} size={36} />,
         tabBarLabel: () => {
           return null
         },

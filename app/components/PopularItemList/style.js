@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderTopRightRadius: RFValue(10),
     borderBottomRightRadius: RFValue(10),
+    elevation: 2,
     height: RFPercentage(16),
     flexDirection: 'row',
     justifyContent: 'space-around',

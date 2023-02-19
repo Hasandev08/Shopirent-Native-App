@@ -9,9 +9,12 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   container: {
+    alignItems: 'center',
     backgroundColor: colors.white,
     borderRadius: RFValue(10),
+    elevation: 2,
     height: RFValue(70),
+    justifyContent: 'center',
     width: RFValue(70),
   },
   categoryName: {

@@ -1,17 +1,18 @@
 import React from 'react'
 
-import { Text, TouchableWithoutFeedback, View } from 'react-native'
+import { Image, Text, TouchableWithoutFeedback, View } from 'react-native'
 
-import { categories } from '../../config/categories'
 import { styles } from './style'
 
-const Categories = () => {
+const Categories = ({ categories }) => {
   return (
     <TouchableWithoutFeedback>
       <View style={styles.categories}>
         {categories.map((item, index) => (
           <View key={index.toString()}>
-            <View style={styles.container}></View>
+            <View style={styles.container}>
+              <Image source={item.icon} />
+            </View>
             <Text style={styles.categoryName}>{item.title}</Text>
           </View>
         ))}
