@@ -4,7 +4,7 @@ import { Image, ScrollView, Text, View } from 'react-native'
 import SearchBar from '../../components/SearchBar'
 
 import colors from '../../config/colors'
-import { popularList } from '../../config/popularList'
+import { productList } from '../../config/productList'
 
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
@@ -12,7 +12,7 @@ import { styles } from './style'
 
 function SearchScreen(props) {
   const [input, setInput] = useState('')
-  const [data, setData] = useState(popularList)
+  const [data, setData] = useState(productList)
 
   return (
     <View style={styles.searchContainer}>

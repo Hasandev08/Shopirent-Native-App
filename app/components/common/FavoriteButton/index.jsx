@@ -3,7 +3,7 @@ import { TouchableWithoutFeedback } from 'react-native'
 
 import { MaterialIcons } from '@expo/vector-icons'
 
-import colors from '../../config/colors'
+import colors from '../../../config/colors'
 
 const FavoriteButton = () => {
   const [toggled, setToggled] = useState(false)

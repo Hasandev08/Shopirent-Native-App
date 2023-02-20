@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
   },
   left: {
     justifyContent: 'center',
-    width: RFPercentage(14),
+    width: RFPercentage(20),
   },
   title: {
     color: colors.primary,
@@ -44,22 +44,6 @@ export const styles = StyleSheet.create({
     fontSize: RFValue(13),
   },
   right: {
-    alignItems: 'flex-end',
-    justifyContent: 'space-around',
-  },
-  buttonOutline: {
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderColor: colors.secondary,
-    borderRadius: RFValue(5),
-    borderWidth: 2,
-    height: RFPercentage(4),
     justifyContent: 'center',
-    width: RFPercentage(10),
-  },
-  cartButton: {
-    backgroundColor: colors.white,
-    color: colors.secondary,
-    fontSize: RFValue(10),
   },
 })

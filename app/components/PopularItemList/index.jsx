@@ -1,30 +1,27 @@
 import React from 'react'
-import { Image, Text, TouchableOpacity, View } from 'react-native'
+import { Image, Text, TouchableWithoutFeedback, View } from 'react-native'
 
-import FavoriteButton from '../FavoriteButton'
+import FavoriteButton from '../common/FavoriteButton'
 
 import { styles } from './style'
 
-const PopularItemList = ({ title, image, price, rating }) => {
+const PopularItemList = ({ title, image, price, rating, onPress }) => {
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={image} />
-      <View style={styles.details}>
-        <View style={styles.left}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.price}>Rs. {price}/-</Text>
-          <Text style={styles.rating}>{rating}</Text>
-        </View>
-        <View style={styles.right}>
-          <FavoriteButton />
-          <TouchableOpacity>
-            <View style={styles.buttonOutline}>
-              <Text style={styles.cartButton}>Add to Cart</Text>
-            </View>
-          </TouchableOpacity>
+    <TouchableWithoutFeedback onPress={onPress}>
+      <View style={styles.container}>
+        <Image style={styles.image} source={image} />
+        <View style={styles.details}>
+          <View style={styles.left}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.price}>Rs. {price}/-</Text>
+            <Text style={styles.rating}>{rating}</Text>
+          </View>
+          <View style={styles.right}>
+            <FavoriteButton />
+          </View>
         </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   )
 }
 

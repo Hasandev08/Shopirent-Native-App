@@ -6,8 +6,7 @@ import PopularItemList from '../../components/PopularItemList'
 import SaleItemList from '../../components/SaleItemList'
 
 import { categories } from '../../config/categories'
-import { popularList } from '../../config/popularList'
-import { saleItem } from '../../config/saleList'
+import { productList } from '../../config/productList'
 
 import { styles } from './style'
 
@@ -23,20 +22,27 @@ function HomeScreen({ navigation }) {
       <Categories categories={categories} />
       <Text style={styles.homeHeading}>Sale Discount</Text>
       <FlatList
-        data={saleItem}
-        renderItem={({ item }) => <SaleItemList title={item.title} image={item.image} />}
+        data={productList}
+        renderItem={({ item }) => (
+          <SaleItemList
+            title={item.title}
+            image={item.image}
+            onPress={() => navigation.navigate('Product', item)}
+          />
+        )}
         keyExtractor={(item) => item.id}
         horizontal
       />
       <Text style={styles.homeHeading}>Popular</Text>
       <FlatList
-        data={popularList}
+        data={productList}
         renderItem={({ item }) => (
           <PopularItemList
             title={item.title}
             image={item.image}
             price={item.price}
             rating={item.rating}
+            onPress={() => navigation.navigate('Product', item)}
           />
         )}
         keyExtractor={(item) => item.id}
