@@ -4,6 +4,10 @@ import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 import colors from '../../config/colors'
 
 export const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   homeContainer: {
     flex: 1,
     marginHorizontal: RFPercentage(3),

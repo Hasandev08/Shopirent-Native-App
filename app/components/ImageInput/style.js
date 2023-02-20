@@ -6,7 +6,6 @@ import colors from '../../config/colors'
 export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: colors.white,
     borderColor: colors.primary,
     borderRadius: 40,
     borderWidth: RFValue(3),

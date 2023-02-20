@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, ScrollView, Text } from 'react-native'
+import { FlatList, Image, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native'
 
 import Categories from '../../components/Categories'
 import PopularItemList from '../../components/PopularItemList'
@@ -8,12 +8,18 @@ import SaleItemList from '../../components/SaleItemList'
 import { categories } from '../../config/categories'
 import { popularList } from '../../config/popularList'
 import { saleItem } from '../../config/saleList'
+
 import { styles } from './style'
 
-function HomeScreen(props) {
+function HomeScreen({ navigation }) {
   return (
     <ScrollView scrollEnabled style={styles.homeContainer}>
-      <Text style={styles.homeHeading}>Category</Text>
+      <View style={styles.header}>
+        <Text style={styles.homeHeading}>Category</Text>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Cart')}>
+          <Image source={require('../../../assets/cart.png')} style={{ margin: 10 }} />
+        </TouchableWithoutFeedback>
+      </View>
       <Categories categories={categories} />
       <Text style={styles.homeHeading}>Sale Discount</Text>
       <FlatList

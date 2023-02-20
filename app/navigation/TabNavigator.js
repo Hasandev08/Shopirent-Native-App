@@ -1,16 +1,16 @@
 import React from 'react'
 
 import AccountScreen from '../screens/AccountScreen'
-import HomeScreen from '../screens/HomeScreen'
 import SearchScreen from '../screens/SearchScreen'
 
 import SearchButton from '../components/SearchButton'
 
+import colors from '../config/colors'
+import FeedNavigator from './FeedNavigator'
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
-
-import colors from '../config/colors'
 
 const Tab = createBottomTabNavigator()
 
@@ -18,7 +18,7 @@ const TabNavigator = () => (
   <Tab.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
     <Tab.Screen
       name='Home'
-      component={HomeScreen}
+      component={FeedNavigator}
       options={{
         tabBarIcon: () => <MaterialCommunityIcons name='home' color={colors.primary} size={32} />,
         tabBarLabel: () => {
