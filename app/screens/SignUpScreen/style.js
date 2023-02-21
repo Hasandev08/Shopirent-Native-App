@@ -9,20 +9,18 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
     flex: 1,
   },
+  header: {
+    alignItems: 'center',
+    marginBottom: 40,
+    marginTop: 80,
+  },
   components: {
     flex: 0.6,
     marginTop: RFPercentage(5),
   },
-  row: {
-    alignItems: 'flex-end',
-    marginHorizontal: 30,
-  },
-  phrase: {
-    fontSize: RFValue(10),
-    color: colors.red,
-    marginVertical: RFPercentage(3),
-  },
-  loginButton: {
+  signupButton: {
     alignItems: 'center',
+    marginBottom: RFPercentage(4),
+    marginTop: 15,
   },
 })

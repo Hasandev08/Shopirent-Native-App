@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, TouchableOpacity, View } from 'react-native'
+import { Text, View } from 'react-native'
 
 import AppButton from '../../components/common/AppButton'
 import CartList from '../../components/CartList'
@@ -17,7 +17,7 @@ const CartScreen = ({ navigation }) => {
           <Text style={styles.header}>Subtotal</Text>
           <Text style={styles.price}>100/-</Text>
         </View>
-        <AppButton title='CHECK OUT' />
+        <AppButton title='CHECK OUT' onPress={() => navigation.navigate('Payment')} />
       </View>
     </View>
   )

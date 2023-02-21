@@ -1,8 +1,9 @@
 import React from 'react'
-import { Image, Text, TouchableOpacity, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 
 import AppForm from '../../components/Forms/AppForm'
 import AppFormField from '../../components/Forms/AppFormField'
+import FormHeader from '../../components/Forms/FormHeader'
 import SubmitButton from '../../components/Forms/SubmitButton'
 
 import * as Yup from 'yup'
@@ -22,13 +23,12 @@ const validationSchema = Yup.object().shape({
 
 const LoginScreen = ({ navigation }) => (
   <View style={styles.background}>
-    <View style={styles.upper}>
-      <TouchableOpacity style={{ alignItems: 'flex-end', marginRight: 25 }}>
-        <Text style={styles.signup}>SIGN UP</Text>
-      </TouchableOpacity>
-      <Text style={styles.heading}>Sign In</Text>
-      <Text style={styles.para}>Login to rent the products</Text>
-    </View>
+    <FormHeader
+      title='Sign In'
+      subTitle='SIGN UP'
+      text='Login to rent the products'
+      onPress={() => navigation.navigate('Signup')}
+    />
     <View style={styles.components}>
       <AppForm
         initialValues={{ email: '', password: '' }}
@@ -61,14 +61,6 @@ const LoginScreen = ({ navigation }) => (
         <View style={styles.loginButton}>
           <SubmitButton title='Login' />
         </View>
-        {/* <View style={styles.footer}>
-          <Text style={styles.account}>
-            Don't have an account?{' '}
-            <Text style={styles.signup} onPress={() => navigation.navigate('Signup')}>
-              SIGNUP
-            </Text>
-          </Text>
-        </View> */}
       </AppForm>
     </View>
   </View>
