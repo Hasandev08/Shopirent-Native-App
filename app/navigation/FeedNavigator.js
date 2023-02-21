@@ -5,6 +5,7 @@ import HomeScreen from '../screens/HomeScreen'
 import ProductScreen from '../screens/ProductScreen'
 
 import { createStackNavigator } from '@react-navigation/stack'
+import LoginScreen from '../screens/LoginScreen'
 
 const Stack = createStackNavigator()
 
@@ -36,6 +37,7 @@ const FeedNavigator = () => (
         headerTintColor: 'rgb(49, 78, 82)',
       }}
     />
+    <Stack.Screen name='Login' component={LoginScreen} options={{ headerShown: false }} />
   </Stack.Navigator>
 )
 

@@ -1,5 +1,13 @@
 import React from 'react'
-import { FlatList, Image, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native'
+import {
+  FlatList,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native'
 
 import Categories from '../../components/Categories'
 import PopularItemList from '../../components/PopularItemList'
@@ -13,10 +21,17 @@ import { styles } from './style'
 function HomeScreen({ navigation }) {
   return (
     <ScrollView scrollEnabled style={styles.homeContainer}>
+      <View style={styles.navBar}>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <View style={styles.bar}>
+            <Text style={styles.barText}>Login/Signup</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
       <View style={styles.header}>
-        <Text style={styles.homeHeading}>Category</Text>
+        <Text style={styles.heading}>Category</Text>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Cart')}>
-          <Image source={require('../../../assets/cart.png')} style={{ margin: 10 }} />
+          <Image source={require('../../../assets/cart.png')} />
         </TouchableWithoutFeedback>
       </View>
       <Categories categories={categories} />
