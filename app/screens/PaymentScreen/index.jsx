@@ -1,9 +1,10 @@
 import React from 'react'
-import { ScrollView, View } from 'react-native'
+import { ScrollView, Text, TextInput, View } from 'react-native'
 
 import AddressDisplay from '../../components/AddressDisplay'
 import AppButton from '../../components/common/AppButton'
 import PaymentItemList from '../../components/PaymentItemList'
+import PaymentMethod from '../../components/PaymentMethod'
 
 import { styles } from './style'
 
@@ -20,6 +21,13 @@ const PaymentScreen = () => {
         />
         <View>
           <PaymentItemList name="Levi's Jeans" color='Red' size='L' price='3000' quantity='2' />
+        </View>
+        <View style={styles.description}>
+          <Text style={styles.descriptionHeading}>Add Description</Text>
+          <TextInput editable multiline numberOfLines={4} style={styles.textInput} />
+        </View>
+        <View>
+          <PaymentMethod />
         </View>
       </ScrollView>
       <View style={styles.footer}>
