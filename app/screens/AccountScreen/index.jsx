@@ -11,21 +11,28 @@ import * as ImagePicker from 'expo-image-picker'
 import { styles } from './style'
 
 function AccountScreen(props) {
-  // const [imageUri, setImageUri] = useState()
+  const [imageUri, setImageUri] = useState(null)
 
-  // const selectImage = async () => {
-  //   try {
-  //     const result = await ImagePicker.launchImageLibraryAsync()
-  //     if (!result.canceled) setImageUri(result.uri)
-  //   } catch (error) {
-  //     console.log('Error reading an image', error)
-  //   }
-  // }
+  const selectImage = async () => {
+    try {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [1, 1],
+        quality: 1,
+      })
+      if (!result.canceled) {
+        setImageUri(result.assets[0].uri)
+      }
+    } catch (error) {
+      console.log('Error reading an image', error)
+    }
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.personal}>
-        <ImageInput />
+        <ImageInput onPress={selectImage} imageUri={imageUri} />
         <Text style={styles.name}>Hasan</Text>
         <Text style={styles.email}>hasanahmed0089@gmail.com</Text>
       </View>

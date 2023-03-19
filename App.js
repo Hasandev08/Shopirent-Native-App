@@ -10,14 +10,14 @@ import * as ImagePicker from 'expo-image-picker'
 import { NavigationContainer } from '@react-navigation/native'
 
 export default function App() {
-  const requestPermission = async () => {
-    const { granted } = await ImagePicker.requestCameraPermissionsAsync()
-    if (!granted) alert('Enable the permission to access the camera')
-  }
+  // const requestPermission = async () => {
+  //   const { granted } = await ImagePicker.requestCameraPermissionsAsync()
+  //   if (!granted) alert('Enable the permission to access the camera')
+  // }
 
-  useEffect(() => {
-    requestPermission()
-  }, [])
+  // useEffect(() => {
+  //   requestPermission()
+  // }, [])
 
   return (
     <View style={styles.background}>

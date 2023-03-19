@@ -1,14 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import {
-  Image,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native'
+import { Image, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native'
 
-import Categories from '../../components/Categories'
 import PopularItemList from '../../components/PopularItemList'
 import SaleItemList from '../../components/SaleItemList'
 
@@ -25,10 +17,14 @@ function CategoryScreen({ navigation, route }) {
     if (listing.category === 'women') {
       tempList = productList.filter((item) => item.category === 'women')
       setList(tempList)
+    } else if (listing.category === 'men') {
+      tempList = productList.filter((item) => item.category === 'men')
+      setList(tempList)
+    } else if (listing.category === 'kids') {
+      tempList = productList.filter((item) => item.category === 'kids')
+      setList(tempList)
     }
   }, [])
-
-  console.log('List', list)
 
   return (
     <ScrollView scrollEnabled style={styles.homeContainer}>
@@ -48,7 +44,6 @@ function CategoryScreen({ navigation, route }) {
         {list.map((item) => (
           <View key={item.id.toString()}>
             <SaleItemList
-              id={item.id}
               title={item.title}
               image={item.image}
               onPress={() => navigation.navigate('Product', item)}
@@ -61,7 +56,6 @@ function CategoryScreen({ navigation, route }) {
         {list.map((item) => (
           <View key={item.id.toString()}>
             <PopularItemList
-              id={item.id}
               title={item.title}
               image={item.image}
               price={item.price}

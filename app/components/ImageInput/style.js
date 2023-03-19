@@ -19,7 +19,6 @@ export const styles = StyleSheet.create({
     borderRadius: 40,
     borderWidth: RFValue(3),
     height: RFValue(70),
-    marginTop: RFPercentage(8),
     width: RFValue(70),
   },
 })
