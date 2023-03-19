@@ -13,6 +13,7 @@ export const accountList = [
     id: '3',
     icon: require('../../assets/love.png'),
     title: 'Favorites',
+    route: 'FavoritesScreen',
   },
   {
     id: '4',

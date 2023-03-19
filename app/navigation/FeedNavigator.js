@@ -2,6 +2,7 @@ import React from 'react'
 
 import CartScreen from '../screens/CartScreen'
 import CategoryScreen from '../screens/CategoryScreen'
+import FavoritesScreen from '../screens/FavoritesScreen'
 import ForgotPassword from '../screens/ForgotPassword'
 import HomeScreen from '../screens/HomeScreen'
 import LoginScreen from '../screens/LoginScreen'
@@ -26,6 +27,20 @@ const FeedNavigator = () => (
       component={CartScreen}
       options={{
         title: 'My Cart',
+        headerStyle: {
+          backgroundColor: 'rgb(246, 246, 247)',
+        },
+        headerTintColor: 'rgb(49, 78, 82)',
+        headerTitleStyle: {
+          color: 'rgb(49, 78, 82)',
+        },
+      }}
+    />
+    <Stack.Screen
+      name='FavoritesScreen'
+      component={FavoritesScreen}
+      options={{
+        title: 'My Favorites',
         headerStyle: {
           backgroundColor: 'rgb(246, 246, 247)',
         },

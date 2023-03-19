@@ -1,18 +1,18 @@
 import React from 'react'
-import { Image, Text, TouchableWithoutFeedback, View } from 'react-native'
+import { Image, Text, TouchableOpacity, View } from 'react-native'
 
 import { styles } from './style'
 
-const AccountList = ({ title, icon }) => {
+const AccountList = ({ title, icon, onPress }) => {
   return (
-    <TouchableWithoutFeedback>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         <View style={styles.list}>
           <Image source={icon} style={{ marginHorizontal: 15 }} />
           <Text style={styles.title}>{title}</Text>
         </View>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   )
 }
 

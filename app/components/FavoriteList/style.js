@@ -35,20 +35,12 @@ export const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: RFValue(15),
   },
-  subContent: {
-    color: colors.secondary,
-    fontSize: RFValue(10),
-  },
   price: {
     color: colors.primary,
     fontSize: RFValue(16),
   },
-  lower: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    height: RFPercentage(4),
-    justifyContent: 'space-between',
-    marginLeft: RFPercentage(27),
-    width: RFPercentage(18),
+  subContent: {
+    color: colors.secondary,
+    fontSize: RFValue(10),
   },
 })

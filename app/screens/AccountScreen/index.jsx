@@ -10,7 +10,7 @@ import * as ImagePicker from 'expo-image-picker'
 
 import { styles } from './style'
 
-function AccountScreen(props) {
+function AccountScreen({ navigation }) {
   const [imageUri, setImageUri] = useState(null)
 
   const selectImage = async () => {
@@ -39,7 +39,13 @@ function AccountScreen(props) {
       <View style={styles.listItems}>
         <FlatList
           data={accountList}
-          renderItem={({ item }) => <AccountList title={item.title} icon={item.icon} />}
+          renderItem={({ item }) => (
+            <AccountList
+              title={item.title}
+              icon={item.icon}
+              onPress={() => navigation.navigate(item.route)}
+            />
+          )}
           keyExtractor={(item) => item.id}
         />
       </View>
