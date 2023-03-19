@@ -4,20 +4,22 @@ import { Image, Text, TouchableWithoutFeedback, View } from 'react-native'
 
 import { styles } from './style'
 
-const Categories = ({ categories }) => {
+const Categories = ({ categories, navigation }) => {
   return (
-    <TouchableWithoutFeedback>
-      <View style={styles.categories}>
-        {categories.map((item, index) => (
-          <View key={index.toString()}>
-            <View style={styles.container}>
-              <Image source={item.icon} />
+    <View style={styles.categories}>
+      {categories.map((item, index) => (
+        <View key={index.toString()}>
+          <TouchableWithoutFeedback onPress={() => navigation.navigate('CategoryScreen', item)}>
+            <View>
+              <View style={styles.container}>
+                <Image source={item.image} />
+              </View>
+              <Text style={styles.categoryName}>{item.title}</Text>
             </View>
-            <Text style={styles.categoryName}>{item.title}</Text>
-          </View>
-        ))}
-      </View>
-    </TouchableWithoutFeedback>
+          </TouchableWithoutFeedback>
+        </View>
+      ))}
+    </View>
   )
 }
 

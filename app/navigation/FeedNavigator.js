@@ -1,6 +1,7 @@
 import React from 'react'
 
 import CartScreen from '../screens/CartScreen'
+import CategoryScreen from '../screens/CategoryScreen'
 import ForgotPassword from '../screens/ForgotPassword'
 import HomeScreen from '../screens/HomeScreen'
 import LoginScreen from '../screens/LoginScreen'
@@ -15,6 +16,11 @@ const Stack = createStackNavigator()
 const FeedNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen name='Home' component={HomeScreen} options={{ headerShown: false }} />
+    <Stack.Screen
+      name='CategoryScreen'
+      component={CategoryScreen}
+      options={{ headerShown: false }}
+    />
     <Stack.Screen
       name='Cart'
       component={CartScreen}

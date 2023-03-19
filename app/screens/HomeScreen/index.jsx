@@ -19,7 +19,7 @@ import { styles } from './style'
 
 function HomeScreen({ navigation }) {
   return (
-    <ScrollView scrollEnabled style={styles.homeContainer}>
+    <ScrollView style={styles.homeContainer}>
       <View style={styles.navBar}>
         <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <View style={styles.bar}>
@@ -33,12 +33,13 @@ function HomeScreen({ navigation }) {
           <Image source={require('../../../assets/cart.png')} />
         </TouchableWithoutFeedback>
       </View>
-      <Categories categories={categories} />
+      <Categories categories={categories} navigation={navigation} />
       <Text style={styles.homeHeading}>Sale Discount</Text>
       <ScrollView horizontal>
         {productList.map((item) => (
           <View key={item.id.toString()}>
             <SaleItemList
+              id={item.id}
               title={item.title}
               image={item.image}
               onPress={() => navigation.navigate('Product', item)}
@@ -51,6 +52,7 @@ function HomeScreen({ navigation }) {
         {productList.map((item) => (
           <View key={item.id.toString()}>
             <PopularItemList
+              id={item.id}
               title={item.title}
               image={item.image}
               price={item.price}

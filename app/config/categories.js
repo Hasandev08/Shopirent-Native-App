@@ -1,14 +1,20 @@
 export const categories = [
   {
+    id: 1,
     title: 'Women Fashion',
-    icon: require('../../assets/women.png'),
+    image: require('../../assets/women.png'),
+    category: 'women',
   },
   {
+    id: 2,
     title: 'Men Fashion',
-    icon: require('../../assets/men.png'),
+    image: require('../../assets/men.png'),
+    category: 'men',
   },
   {
+    id: 3,
     title: 'Child Fashion',
-    icon: require('../../assets/children.png'),
+    image: require('../../assets/children.png'),
+    category: 'kids',
   },
 ]

@@ -14,9 +14,23 @@ function SearchScreen(props) {
   const [input, setInput] = useState('')
   const [data, setData] = useState(productList)
 
+  const handleInput = (input) => {
+    let array = ['category']
+    let res = []
+    array.forEach((item) => {
+      let temp = data.filter((tempData) => {
+        return tempData[item].toLowerCase().includes(input.toLowerCase())
+      })
+      res = [...res, ...temp]
+    })
+    setData([...new Set(res)])
+    if (input === '') setData(productList)
+    setInput(input)
+  }
+
   return (
     <View style={styles.searchContainer}>
-      <SearchBar input={input} setInput={setInput} />
+      <SearchBar input={input} setInput={handleInput} />
       <ScrollView>
         <View style={styles.component}>
           {data.map((item) => (
