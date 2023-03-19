@@ -6,6 +6,7 @@ import colors from '../../config/colors'
 export const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+    justifyContent: 'center',
     marginBottom: RFValue(10),
   },
   image: {
