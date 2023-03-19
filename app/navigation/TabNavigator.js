@@ -15,9 +15,9 @@ import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons'
 const Tab = createBottomTabNavigator()
 
 const TabNavigator = () => (
-  <Tab.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
+  <Tab.Navigator initialRouteName='FeedNavigator' screenOptions={{ headerShown: false }}>
     <Tab.Screen
-      name='Home'
+      name='FeedNavigator'
       component={FeedNavigator}
       options={{
         tabBarIcon: () => <MaterialCommunityIcons name='home' color={colors.primary} size={32} />,
