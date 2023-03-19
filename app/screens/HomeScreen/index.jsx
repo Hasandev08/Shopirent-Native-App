@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  FlatList,
   Image,
   ScrollView,
   Text,
@@ -36,32 +35,31 @@ function HomeScreen({ navigation }) {
       </View>
       <Categories categories={categories} />
       <Text style={styles.homeHeading}>Sale Discount</Text>
-      <FlatList
-        data={productList}
-        renderItem={({ item }) => (
-          <SaleItemList
-            title={item.title}
-            image={item.image}
-            onPress={() => navigation.navigate('Product', item)}
-          />
-        )}
-        keyExtractor={(item) => item.id}
-        horizontal
-      />
+      <ScrollView horizontal>
+        {productList.map((item) => (
+          <View key={item.id.toString()}>
+            <SaleItemList
+              title={item.title}
+              image={item.image}
+              onPress={() => navigation.navigate('Product', item)}
+            />
+          </View>
+        ))}
+      </ScrollView>
       <Text style={styles.homeHeading}>Popular</Text>
-      <FlatList
-        data={productList}
-        renderItem={({ item }) => (
-          <PopularItemList
-            title={item.title}
-            image={item.image}
-            price={item.price}
-            rating={item.rating}
-            onPress={() => navigation.navigate('Product', item)}
-          />
-        )}
-        keyExtractor={(item) => item.id}
-      />
+      <ScrollView>
+        {productList.map((item) => (
+          <View key={item.id.toString()}>
+            <PopularItemList
+              title={item.title}
+              image={item.image}
+              price={item.price}
+              rating={item.rating}
+              onPress={() => navigation.navigate('Product', item)}
+            />
+          </View>
+        ))}
+      </ScrollView>
     </ScrollView>
   )
 }
