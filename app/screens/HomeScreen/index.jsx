@@ -38,12 +38,7 @@ function HomeScreen({ navigation }) {
       <ScrollView horizontal>
         {productList.map((item) => (
           <View key={item.id.toString()}>
-            <SaleItemList
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              onPress={() => navigation.navigate('Product', item)}
-            />
+            <SaleItemList item={item} onPress={() => navigation.navigate('Product', item)} />
           </View>
         ))}
       </ScrollView>
@@ -51,14 +46,7 @@ function HomeScreen({ navigation }) {
       <ScrollView>
         {productList.map((item) => (
           <View key={item.id.toString()}>
-            <PopularItemList
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              price={item.price}
-              rating={item.rating}
-              onPress={() => navigation.navigate('Product', item)}
-            />
+            <PopularItemList item={item} onPress={() => navigation.navigate('Product', item)} />
           </View>
         ))}
       </ScrollView>

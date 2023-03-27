@@ -17,7 +17,8 @@ export const styles = StyleSheet.create({
     elevation: 10,
     flex: 0.5,
     justifyContent: 'space-between',
-    padding: RFPercentage(3),
+    paddingHorizontal: RFPercentage(3),
+    paddingVertical: RFPercentage(1.5),
   },
   productImage: {
     height: '100%',
@@ -31,5 +32,13 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: RFPercentage(20),
+  },
+  favorite: {
+    alignSelf: 'center',
+  },
+  desc: {
+    color: colors.secondary,
+    fontSize: 14,
+    textAlign: 'justify',
   },
 })

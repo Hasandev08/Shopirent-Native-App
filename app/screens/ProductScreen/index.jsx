@@ -1,15 +1,31 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ImageBackground, Text, View } from 'react-native'
+
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import AppButton from '../../components/common/AppButton'
 import CounterButton from '../../components/common/CounterButton'
-import colors from '../../config/colors'
+import FavoriteButton from '../../components/common/FavoriteButton'
 import SizeButton from '../../components/SizeButton'
 
+import colors from '../../config/colors'
 import { styles } from './style'
 
 const ProductScreen = ({ navigation, route }) => {
   const listing = route.params
+  const [toggled, setToggled] = useState(false)
+  const [favorites, setFavorites] = useState([])
+
+  const handleFavorite = async (listing) => {
+    try {
+      const updatedFavorites = [...favorites, listing]
+      setFavorites(updatedFavorites)
+      setToggled(true)
+      await AsyncStorage.setItem('favorites', JSON.stringify(updatedFavorites))
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
     navigation.getParent()?.setOptions({
@@ -37,6 +53,9 @@ const ProductScreen = ({ navigation, route }) => {
             <Text style={{ color: colors.secondary, fontSize: 14 }}>{listing.rating}</Text>
           </View>
           <View style={styles.headerRight}>
+            <View style={styles.favorite}>
+              <FavoriteButton handleFavorite={() => handleFavorite(listing)} toggled={toggled} />
+            </View>
             <Text style={{ color: colors.primary, fontSize: 24, fontWeight: '500' }}>
               {listing.price}/-
             </Text>
@@ -54,7 +73,7 @@ const ProductScreen = ({ navigation, route }) => {
         </View>
         <View>
           <Text style={{ color: colors.secondary, fontSize: 14 }}>Description</Text>
-          <Text style={{ color: colors.secondary, fontSize: 14 }}>{listing.description}</Text>
+          <Text style={styles.desc}>{listing.description}</Text>
         </View>
         <View style={{ alignItems: 'center' }}>
           <AppButton title='ADD TO CART' />

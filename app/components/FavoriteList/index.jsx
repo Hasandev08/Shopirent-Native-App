@@ -7,17 +7,17 @@ import { MaterialIcons } from '@expo/vector-icons'
 import colors from '../../config/colors'
 import { styles } from './style'
 
-const CartList = () => {
+const FavoriteList = ({ favorites }) => {
   return (
     <View style={styles.container}>
       <View style={styles.upper}>
         <View style={styles.left}>
           <View style={styles.image}></View>
           <View style={styles.content}>
-            <Text style={styles.name}>Levi's Jeans</Text>
+            <Text style={styles.name}>{favorites.title}</Text>
             <Text style={styles.subContent}>Color: Dark Grey</Text>
             <Text style={styles.subContent}>Size: L</Text>
-            <Text style={styles.price}>1500/-</Text>
+            <Text style={styles.price}>{favorites.price}/-</Text>
           </View>
         </View>
         <View style={styles.right}>
@@ -28,4 +28,4 @@ const CartList = () => {
   )
 }
 
-export default CartList
+export default FavoriteList

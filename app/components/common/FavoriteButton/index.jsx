@@ -1,19 +1,13 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { TouchableWithoutFeedback } from 'react-native'
 
 import { MaterialIcons } from '@expo/vector-icons'
 
 import colors from '../../../config/colors'
 
-const FavoriteButton = () => {
-  const [toggled, setToggled] = useState(false)
-
-  const handlePress = () => {
-    setToggled((s) => !s)
-  }
-
+const FavoriteButton = ({ handleFavorite, toggled }) => {
   return (
-    <TouchableWithoutFeedback onPress={handlePress}>
+    <TouchableWithoutFeedback onPress={handleFavorite}>
       {!toggled ? (
         <MaterialIcons name='favorite-outline' size={24} color={colors.red} />
       ) : (
