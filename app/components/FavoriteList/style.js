@@ -12,12 +12,21 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   upper: {
-    alignItems: 'center',
+    flexDirection: 'row',
     borderBottomColor: colors.background,
     borderBottomWidth: RFValue(1),
-    flexDirection: 'row',
     height: RFPercentage(18),
     width: '100%',
+  },
+  left: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    height: '100%',
+    width: '85%',
+  },
+  right: {
+    paddingTop: RFPercentage(2),
+    width: '15%',
   },
   image: {
     backgroundColor: 'rgb(228,228,228)',
