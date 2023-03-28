@@ -9,6 +9,7 @@ import FavoriteList from '../../components/FavoriteList'
 import { styles } from './style'
 
 const FavoritesScreen = ({ navigation }) => {
+  const [product, setProduct] = useState([])
   const [favorites, setFavorites] = useState([])
 
   const favoriteList = async () => {
@@ -20,10 +21,10 @@ const FavoritesScreen = ({ navigation }) => {
   }
 
   const deleteFavorite = async () => {
-    const newFavorites = favorites.filter((n) => n.id !== favorites.id)
-    console.log(newFavorites)
-    setFavorites(newFavorites)
-    // await AsyncStorage.setItem('favorites', JSON.stringify(newFavorites))
+    const newFavorites = favorites.filter((n) => n.id !== product.id)
+    console.log('UPDATED', newFavorites)
+
+    await AsyncStorage.setItem('favorites', JSON.stringify(newFavorites))
   }
 
   const displayDeleteAlert = () => {
@@ -57,6 +58,7 @@ const FavoritesScreen = ({ navigation }) => {
           <FavoriteList
             navigation={navigation}
             favorites={favorites}
+            setProduct={setProduct}
             renderRightActions={() => <DeleteAction onPress={displayDeleteAlert} />}
           />
         </View>

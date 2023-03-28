@@ -7,13 +7,17 @@ import { MaterialIcons } from '@expo/vector-icons'
 import colors from '../../config/colors'
 import { styles } from './style'
 
-const FavoriteList = ({ favorites = [], renderRightActions, navigation }) => {
+const FavoriteList = ({ favorites = [], renderRightActions, navigation, setProduct }) => {
   return (
     <>
       {favorites.map((item) => (
         <View style={styles.container} key={item.id}>
           <TouchableOpacity onPress={() => navigation.navigate('Product', item)}>
-            <Swipeable renderRightActions={renderRightActions}>
+            <Swipeable
+              renderRightActions={renderRightActions}
+              onSwipeableOpen={() => setProduct(item)}
+              onSwipeableClose={() => setProduct([])}
+            >
               <View style={styles.upper}>
                 <View style={styles.left}>
                   <Image source={item.image} style={styles.image} resizeMode='contain' />
