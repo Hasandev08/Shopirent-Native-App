@@ -14,16 +14,14 @@ function CategoryScreen({ navigation, route }) {
   let tempList = []
 
   useEffect(() => {
-    if (listing.category === 'women') {
-      tempList = productList.filter((item) => item.category === 'women')
-      setList(tempList)
-    } else if (listing.category === 'men') {
-      tempList = productList.filter((item) => item.category === 'men')
-      setList(tempList)
-    } else if (listing.category === 'kids') {
-      tempList = productList.filter((item) => item.category === 'kids')
-      setList(tempList)
-    }
+    let arr = ['women', 'men', 'kids']
+    arr.forEach((item) => {
+      if (listing.category === item) {
+        console.log(productList, listing)
+        tempList = productList.filter((it) => it.category === item)
+        setList(tempList)
+      }
+    })
   }, [])
 
   return (
@@ -43,11 +41,7 @@ function CategoryScreen({ navigation, route }) {
       <ScrollView horizontal>
         {list.map((item) => (
           <View key={item.id.toString()}>
-            <SaleItemList
-              title={item.title}
-              image={item.image}
-              onPress={() => navigation.navigate('Product', item)}
-            />
+            <SaleItemList item={item} onPress={() => navigation.navigate('Product', item)} />
           </View>
         ))}
       </ScrollView>
@@ -55,13 +49,7 @@ function CategoryScreen({ navigation, route }) {
       <ScrollView>
         {list.map((item) => (
           <View key={item.id.toString()}>
-            <PopularItemList
-              title={item.title}
-              image={item.image}
-              price={item.price}
-              rating={item.rating}
-              onPress={() => navigation.navigate('Product', item)}
-            />
+            <PopularItemList item={item} onPress={() => navigation.navigate('Product', item)} />
           </View>
         ))}
       </ScrollView>

@@ -10,21 +10,44 @@ import SizeButton from '../../components/SizeButton'
 
 import colors from '../../config/colors'
 import { styles } from './style'
+import { getAsync } from '../../config/utils'
 
 const ProductScreen = ({ navigation, route }) => {
   const listing = route.params
   const [toggled, setToggled] = useState(false)
-  const [favorites, setFavorites] = useState([])
+
+  let call = async () => {
+    let result = await getAsync()
+    let isPresent = result.filter((item) => item.id === listing.id)
+    if (isPresent.length > 0) {
+      setToggled(true)
+    }
+  }
+
+  useEffect(() => {
+    call()
+    return () => call()
+  }, [])
+
+  const addingFavorite = async (listing, result) => {
+    const updatedFavorites = [listing]
+    setToggled(true)
+    let finArr = [...result, ...updatedFavorites]
+    await AsyncStorage.setItem('favorites', JSON.stringify(finArr))
+  }
 
   const handleFavorite = async (listing) => {
     try {
-      const updatedFavorites = [...favorites, listing]
-      setFavorites(updatedFavorites)
-      setToggled(true)
-      await AsyncStorage.setItem('favorites', JSON.stringify(updatedFavorites))
-    } catch (error) {
-      console.log(error)
-    }
+      let result = await getAsync()
+      if (result.length == 0) {
+        addingFavorite(listing, result)
+      } else {
+        let isPresent = result.filter((item) => item.id === listing.id)
+        if (isPresent.length === 0) {
+          addingFavorite(listing, result)
+        }
+      }
+    } catch (error) {}
   }
 
   useEffect(() => {
@@ -39,6 +62,9 @@ const ProductScreen = ({ navigation, route }) => {
       })
   }, [navigation])
 
+  const handeSize = (sz) => {
+    console.log(sz)
+  }
   return (
     <View style={styles.container}>
       <View style={styles.upper}>
@@ -64,7 +90,7 @@ const ProductScreen = ({ navigation, route }) => {
         <View style={styles.common}>
           <Text style={{ color: colors.secondary, fontSize: 14 }}>Size: </Text>
           <View style={styles.sizeButtons}>
-            <SizeButton />
+            <SizeButton handleSize={handeSize} />
           </View>
         </View>
         <View style={styles.common}>

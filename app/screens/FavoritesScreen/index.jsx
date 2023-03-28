@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -12,8 +12,10 @@ const FavoritesScreen = () => {
 
   const favoriteList = async () => {
     const result = await AsyncStorage.getItem('favorites')
-    if (result !== null) setFavorites(result)
-    console.log(favorites)
+    if (result) {
+      let temp = JSON.parse(result)
+      if (temp.length > 0) setFavorites(() => temp)
+    }
   }
 
   useEffect(() => {
@@ -21,11 +23,13 @@ const FavoritesScreen = () => {
   }, [])
 
   return (
-    <View style={styles.container}>
-      <View style={styles.list}>
-        <FavoriteList favorites={favorites} />
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.list}>
+          <FavoriteList favorites={favorites} />
+        </View>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 

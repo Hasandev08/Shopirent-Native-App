@@ -6,15 +6,26 @@ import colors from '../../config/colors'
 
 import { styles } from './style'
 
-const SizeButton = () => {
-  const [small, setSmall] = useState(false)
-  const [medium, setmedium] = useState(true)
-  const [large, setLarge] = useState(false)
-  const [xlarge, setXlarge] = useState(false)
-
+const SizeButton = ({ handleSize = () => {} }) => {
+  const [size, setSize] = useState('M')
   return (
     <>
-      {small ? (
+      {['S', 'M', 'L', 'XL'].map((item) => (
+        <TouchableWithoutFeedback
+          key={item}
+          onPress={() => {
+            handleSize(item)
+            setSize(item)
+          }}
+        >
+          <View style={item === size ? styles.sizeOn : styles.size}>
+            <Text style={{ color: item === size ? colors.white : colors.primary, fontSize: 14 }}>
+              {item}
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+      ))}
+      {/* {small ? (
         <TouchableWithoutFeedback
           onPress={() => {
             setSmall(true)
@@ -121,7 +132,7 @@ const SizeButton = () => {
             <Text style={{ color: colors.primary, fontSize: 14 }}>XL</Text>
           </View>
         </TouchableWithoutFeedback>
-      )}
+      )} */}
     </>
   )
 }
