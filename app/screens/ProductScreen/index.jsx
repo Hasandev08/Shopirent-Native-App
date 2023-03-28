@@ -8,9 +8,11 @@ import CounterButton from '../../components/common/CounterButton'
 import FavoriteButton from '../../components/common/FavoriteButton'
 import SizeButton from '../../components/SizeButton'
 
+import { getAsync } from '../../utils/getItem'
+
 import colors from '../../config/colors'
+
 import { styles } from './style'
-import { getAsync } from '../../config/utils'
 
 const ProductScreen = ({ navigation, route }) => {
   const listing = route.params
@@ -47,7 +49,9 @@ const ProductScreen = ({ navigation, route }) => {
           addingFavorite(listing, result)
         }
       }
-    } catch (error) {}
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
@@ -60,7 +64,7 @@ const ProductScreen = ({ navigation, route }) => {
       navigation.getParent()?.setOptions({
         tabBarStyle: undefined,
       })
-  }, [navigation])
+  }, [])
 
   const handeSize = (sz) => {
     console.log(sz)
