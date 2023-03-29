@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { Alert, ScrollView, View } from 'react-native'
+import { ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import DeleteAction from '../../components/common/DeleteAction.js'
 import FavoriteList from '../../components/FavoriteList'
+
+import { displayDeleteAlert } from '../../utils/alert.js'
 
 import { styles } from './style'
 
@@ -22,29 +24,13 @@ const FavoritesScreen = ({ navigation }) => {
 
   const deleteFavorite = async () => {
     const newFavorites = favorites.filter((n) => n.id !== product.id)
-    console.log('UPDATED', newFavorites)
-
     await AsyncStorage.setItem('favorites', JSON.stringify(newFavorites))
+    setFavorites(newFavorites)
   }
 
-  const displayDeleteAlert = () => {
-    Alert.alert(
-      'Are you sure?',
-      'This action will delete your note permanently!',
-      [
-        {
-          text: 'Delete',
-          onPress: deleteFavorite,
-        },
-        {
-          text: 'No Thanks',
-          onPress: () => console.log('Thanks'),
-        },
-      ],
-      {
-        cancelable: true,
-      }
-    )
+  const handleDeleteAll = async () => {
+    await AsyncStorage.removeItem('favorites')
+    setFavorites([])
   }
 
   useEffect(() => {
@@ -54,12 +40,39 @@ const FavoritesScreen = ({ navigation }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
+        {favorites.length > 0 && (
+          <TouchableWithoutFeedback
+            onPress={() =>
+              displayDeleteAlert(
+                'Are you sure?',
+                'This action will delete all your products!',
+                'Delete',
+                handleDeleteAll,
+                'No Thanks'
+              )
+            }
+          >
+            <Text style={styles.deleteButton}>(Delete All)</Text>
+          </TouchableWithoutFeedback>
+        )}
         <View style={styles.list}>
           <FavoriteList
             navigation={navigation}
             favorites={favorites}
             setProduct={setProduct}
-            renderRightActions={() => <DeleteAction onPress={displayDeleteAlert} />}
+            renderRightActions={() => (
+              <DeleteAction
+                onPress={() =>
+                  displayDeleteAlert(
+                    'Are you sure?',
+                    'This action will delete your product!',
+                    'Delete',
+                    deleteFavorite,
+                    'No Thanks'
+                  )
+                }
+              />
+            )}
           />
         </View>
       </View>
