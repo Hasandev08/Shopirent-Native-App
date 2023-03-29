@@ -7,9 +7,18 @@ const PaymentMethod = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>Payment Method</Text>
+        <Text>Payment</Text>
       </View>
-      <View></View>
+      <View style={styles.footer}>
+        <View style={styles.bar}>
+          <Text style={{ color: 'rgb(87, 99, 111)' }}>Subtotal for products</Text>
+          <Text style={{ color: 'rgb(87, 99, 111)' }}>3000</Text>
+        </View>
+        <View style={styles.bar}>
+          <Text style={{ color: 'rgb(87, 99, 111)' }}>Subtotal for shipping</Text>
+          <Text style={{ color: 'rgb(87, 99, 111)' }}>300</Text>
+        </View>
+      </View>
     </View>
   )
 }

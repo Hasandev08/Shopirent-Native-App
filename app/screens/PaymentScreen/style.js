@@ -13,20 +13,19 @@ export const styles = StyleSheet.create({
   description: {
     backgroundColor: colors.white,
     height: RFPercentage(20),
-    justifyContent: 'space-around',
     marginTop: RFPercentage(2),
     paddingHorizontal: RFPercentage(3),
   },
   descriptionHeading: {
     color: colors.primary,
+    marginVertical: RFPercentage(1),
   },
   textInput: {
     borderColor: 'rgb(87, 99, 111)',
     borderRadius: RFValue(12),
     borderWidth: RFValue(1),
-    marginBottom: RFPercentage(1),
-    paddingBottom: RFPercentage(2),
-    paddingLeft: RFPercentage(1),
+    // height: RFPercentage(12),
+    padding: RFPercentage(1),
   },
   footer: {
     alignItems: 'center',
@@ -35,7 +34,23 @@ export const styles = StyleSheet.create({
     borderTopRightRadius: RFValue(25),
     elevation: 20,
     flex: 0.25,
-    marginTop: RFPercentage(2),
-    justifyContent: 'center',
+    justifyContent: 'space-around',
+    marginTop: RFPercentage(1),
+  },
+  totalContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: RFPercentage(3),
+    width: '100%',
+  },
+  totalText: {
+    color: colors.secondary,
+    fontSize: RFValue(16),
+    fontWeight: 'bold',
+  },
+  totalPrice: {
+    color: 'rgb(228, 18, 107)',
+    fontSize: RFValue(18),
+    fontWeight: 'bold',
   },
 })

@@ -31,6 +31,10 @@ const PaymentScreen = () => {
         </View>
       </ScrollView>
       <View style={styles.footer}>
+        <View style={styles.totalContainer}>
+          <Text style={styles.totalText}>Total</Text>
+          <Text style={styles.totalPrice}>3300</Text>
+        </View>
         <AppButton title='BUY NOW' />
       </View>
     </View>
