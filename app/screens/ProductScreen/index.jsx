@@ -16,12 +16,20 @@ import { styles } from './style'
 const ProductScreen = ({ navigation, route }) => {
   const listing = route.params
   const [toggled, setToggled] = useState(false)
+  const [cartToggled, setCartToggled] = useState(false)
 
   let call = async () => {
-    let result = await getAsync('favorites')
-    let isPresent = result.filter((item) => item.id === listing.id)
-    if (isPresent.length > 0) {
+    let favoriteResult = await getAsync('favorites')
+    let cartResult = await getAsync('cart')
+
+    let isFavoritePresent = favoriteResult.filter((item) => item.id === listing.id)
+    let isCartPresent = cartResult.filter((item) => item.id === listing.id)
+
+    if (isFavoritePresent.length > 0) {
       setToggled(true)
+    }
+    if (isCartPresent.length > 0) {
+      setCartToggled(true)
     }
   }
 
@@ -82,7 +90,11 @@ const ProductScreen = ({ navigation, route }) => {
           <Text style={styles.desc}>{listing.description}</Text>
         </View>
         <View style={{ alignItems: 'center' }}>
-          <AppButton title='ADD TO CART' onPress={() => handleAddProduct(listing, 'cart')} />
+          {!cartToggled ? (
+            <AppButton title='ADD TO CART' onPress={() => handleAddProduct(listing, 'cart')} />
+          ) : (
+            <AppButton title='ADDED TO CART' buttonDisable={true} />
+          )}
         </View>
       </View>
     </View>

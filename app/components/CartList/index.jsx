@@ -21,7 +21,7 @@ const CartList = ({ cart, renderRightActions, setProduct }) => {
                 <Text style={styles.name}>{item.title}</Text>
                 <Text style={styles.subContent}>Color: Dark Grey</Text>
                 <Text style={styles.subContent}>Size: L</Text>
-                <Text style={styles.price}>{item.price}</Text>
+                <Text style={styles.price}>{item.price}/-</Text>
               </View>
             </View>
           </Swipeable>

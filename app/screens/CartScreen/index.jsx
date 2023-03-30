@@ -15,6 +15,7 @@ import { styles } from './style'
 const CartScreen = ({ navigation }) => {
   const [product, setProduct] = useState([])
   const [cart, setCart] = useState([])
+  const [totalPrice, setTotalPrice] = useState(0)
 
   const cartList = async () => {
     const result = await AsyncStorage.getItem('cart')
@@ -24,9 +25,21 @@ const CartScreen = ({ navigation }) => {
     }
   }
 
+  const calcTotal = () => {
+    let temp = 0
+    cart.forEach((item) => {
+      temp = temp + item.price
+    })
+    setTotalPrice(temp)
+  }
+
   useEffect(() => {
     cartList()
   }, [])
+
+  useEffect(() => {
+    calcTotal()
+  }, [cart])
 
   useEffect(() => {
     navigation.getParent()?.setOptions({
@@ -79,7 +92,7 @@ const CartScreen = ({ navigation }) => {
       <View style={styles.checkOut}>
         <View style={styles.subtotal}>
           <Text style={styles.header}>Subtotal</Text>
-          <Text style={styles.price}>100/-</Text>
+          <Text style={styles.price}>{totalPrice}/-</Text>
         </View>
         <AppButton title='CHECK OUT' onPress={() => navigation.navigate('Payment')} />
       </View>

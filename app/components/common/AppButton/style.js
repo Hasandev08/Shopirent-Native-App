@@ -12,6 +12,15 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     width: RFPercentage(40),
   },
+  disableButton: {
+    alignItems: 'center',
+    backgroundColor: colors.primary,
+    borderRadius: RFValue(30),
+    height: RFPercentage(8),
+    justifyContent: 'center',
+    opacity: 0.7,
+    width: RFPercentage(40),
+  },
   text: {
     color: colors.white,
     fontSize: RFValue(14),
