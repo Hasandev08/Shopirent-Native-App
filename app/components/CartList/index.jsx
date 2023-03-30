@@ -1,27 +1,26 @@
 import React from 'react'
 
-import { Text, View } from 'react-native'
-import colors from '../../config/colors'
+import { Image, Text, View } from 'react-native'
 
 import { styles } from './style'
 
-const CartList = () => {
+const CartList = ({ cart }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.upper}>
-        <View style={styles.image}></View>
-        <View style={styles.content}>
-          <Text style={styles.name}>Levi's Jeans</Text>
-          <Text style={styles.subContent}>Color: Dark Grey</Text>
-          <Text style={styles.subContent}>Size: L</Text>
-          <Text style={styles.price}>1500/-</Text>
+    <>
+      {cart.map((item) => (
+        <View style={styles.container} key={item.id}>
+          <View style={styles.upper}>
+            <Image source={item.image} style={styles.image} resizeMode='contain' />
+            <View style={styles.content}>
+              <Text style={styles.name}>{item.title}</Text>
+              <Text style={styles.subContent}>Color: Dark Grey</Text>
+              <Text style={styles.subContent}>Size: L</Text>
+              <Text style={styles.price}>{item.price}</Text>
+            </View>
+          </View>
         </View>
-      </View>
-      <View style={styles.lower}>
-        <Text style={{ color: colors.primary, fontWeight: 'bold' }}>Sub Total:</Text>
-        <Text style={{ color: colors.red, fontWeight: 'bold' }}>3000/-</Text>
-      </View>
-    </View>
+      ))}
+    </>
   )
 }
 

@@ -17,7 +17,6 @@ function CategoryScreen({ navigation, route }) {
     let arr = ['women', 'men', 'kids']
     arr.forEach((item) => {
       if (listing.category === item) {
-        console.log(productList, listing)
         tempList = productList.filter((it) => it.category === item)
         setList(tempList)
       }

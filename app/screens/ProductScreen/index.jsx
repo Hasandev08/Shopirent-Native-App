@@ -20,6 +20,7 @@ const ProductScreen = ({ navigation, route }) => {
 
   let call = async () => {
     let result = await getAsync()
+    let cart = await getAsync('cart')
     let isPresent = result.filter((item) => item.id === listing.id)
     if (isPresent.length > 0) {
       setToggled(true)
@@ -54,6 +55,28 @@ const ProductScreen = ({ navigation, route }) => {
     }
   }
 
+  const addingCart = async (listing, result) => {
+    const updatedCart = [listing]
+    let finArr = [...result, ...updatedCart]
+    await AsyncStorage.setItem('cart', JSON.stringify(finArr))
+  }
+
+  const handleCart = async (listing) => {
+    try {
+      let result = await getAsync()
+      if (result.length == 0) {
+        addingCart(listing, result)
+      } else {
+        let isPresent = result.filter((item) => item.id === listing.id)
+        if (isPresent.length === 0) {
+          addingCart(listing, result)
+        }
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   useEffect(() => {
     navigation.getParent()?.setOptions({
       tabBarStyle: {
@@ -69,6 +92,7 @@ const ProductScreen = ({ navigation, route }) => {
   const handeSize = (sz) => {
     console.log(sz)
   }
+
   return (
     <View style={styles.container}>
       <View style={styles.upper}>
@@ -106,7 +130,7 @@ const ProductScreen = ({ navigation, route }) => {
           <Text style={styles.desc}>{listing.description}</Text>
         </View>
         <View style={{ alignItems: 'center' }}>
-          <AppButton title='ADD TO CART' />
+          <AppButton title='ADD TO CART' onPress={() => handleCart(listing)} />
         </View>
       </View>
     </View>
