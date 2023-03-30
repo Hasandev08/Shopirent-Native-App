@@ -19,8 +19,7 @@ const ProductScreen = ({ navigation, route }) => {
   const [toggled, setToggled] = useState(false)
 
   let call = async () => {
-    let result = await getAsync()
-    let cart = await getAsync('cart')
+    let result = await getAsync('favorites')
     let isPresent = result.filter((item) => item.id === listing.id)
     if (isPresent.length > 0) {
       setToggled(true)
@@ -32,44 +31,23 @@ const ProductScreen = ({ navigation, route }) => {
     return () => call()
   }, [])
 
-  const addingFavorite = async (listing, result) => {
-    const updatedFavorites = [listing]
-    setToggled(true)
-    let finArr = [...result, ...updatedFavorites]
-    await AsyncStorage.setItem('favorites', JSON.stringify(finArr))
+  const addingItem = async (listing, result, name) => {
+    const updatedItems = [listing]
+    if (name === 'favorites') setToggled(true)
+
+    let tempArr = [...result, ...updatedItems]
+    await AsyncStorage.setItem(name, JSON.stringify(tempArr))
   }
 
-  const handleFavorite = async (listing) => {
+  const handleItem = async (listing, name) => {
     try {
-      let result = await getAsync()
+      let result = await getAsync(name)
       if (result.length == 0) {
-        addingFavorite(listing, result)
+        addingItem(listing, result, name)
       } else {
         let isPresent = result.filter((item) => item.id === listing.id)
         if (isPresent.length === 0) {
-          addingFavorite(listing, result)
-        }
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const addingCart = async (listing, result) => {
-    const updatedCart = [listing]
-    let finArr = [...result, ...updatedCart]
-    await AsyncStorage.setItem('cart', JSON.stringify(finArr))
-  }
-
-  const handleCart = async (listing) => {
-    try {
-      let result = await getAsync()
-      if (result.length == 0) {
-        addingCart(listing, result)
-      } else {
-        let isPresent = result.filter((item) => item.id === listing.id)
-        if (isPresent.length === 0) {
-          addingCart(listing, result)
+          addingItem(listing, result, name)
         }
       }
     } catch (error) {
@@ -89,10 +67,6 @@ const ProductScreen = ({ navigation, route }) => {
       })
   }, [])
 
-  const handeSize = (sz) => {
-    console.log(sz)
-  }
-
   return (
     <View style={styles.container}>
       <View style={styles.upper}>
@@ -108,7 +82,10 @@ const ProductScreen = ({ navigation, route }) => {
           </View>
           <View style={styles.headerRight}>
             <View style={styles.favorite}>
-              <FavoriteButton handleFavorite={() => handleFavorite(listing)} toggled={toggled} />
+              <FavoriteButton
+                handleFavorite={() => handleItem(listing, 'favorites')}
+                toggled={toggled}
+              />
             </View>
             <Text style={{ color: colors.primary, fontSize: 24, fontWeight: '500' }}>
               {listing.price}/-
@@ -118,7 +95,7 @@ const ProductScreen = ({ navigation, route }) => {
         <View style={styles.common}>
           <Text style={{ color: colors.secondary, fontSize: 14 }}>Size: </Text>
           <View style={styles.sizeButtons}>
-            <SizeButton handleSize={handeSize} />
+            <SizeButton />
           </View>
         </View>
         <View style={styles.common}>
@@ -130,7 +107,7 @@ const ProductScreen = ({ navigation, route }) => {
           <Text style={styles.desc}>{listing.description}</Text>
         </View>
         <View style={{ alignItems: 'center' }}>
-          <AppButton title='ADD TO CART' onPress={() => handleCart(listing)} />
+          <AppButton title='ADD TO CART' onPress={() => handleItem(listing, 'cart')} />
         </View>
       </View>
     </View>

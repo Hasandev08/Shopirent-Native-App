@@ -43,12 +43,4 @@ export const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: RFValue(16),
   },
-  lower: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    height: RFPercentage(4),
-    justifyContent: 'space-between',
-    marginLeft: RFPercentage(27),
-    width: RFPercentage(18),
-  },
 })

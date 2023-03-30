@@ -10,7 +10,8 @@ export const styles = StyleSheet.create({
     flex: 1,
   },
   list: {
-    flex: 0.8,
+    flex: 0.75,
+    marginBottom: RFPercentage(1),
   },
   checkOut: {
     alignItems: 'center',
@@ -18,7 +19,7 @@ export const styles = StyleSheet.create({
     borderTopLeftRadius: RFValue(15),
     borderTopRightRadius: RFValue(15),
     elevation: 10,
-    flex: 0.2,
+    flex: 0.25,
     justifyContent: 'center',
   },
   subtotal: {

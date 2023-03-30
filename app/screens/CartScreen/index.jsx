@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
@@ -37,9 +37,9 @@ const CartScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.list}>
+      <ScrollView style={styles.list}>
         <CartList cart={cart} />
-      </View>
+      </ScrollView>
       <View style={styles.checkOut}>
         <View style={styles.subtotal}>
           <Text style={styles.header}>Subtotal</Text>
