@@ -13,6 +13,15 @@ export const styles = StyleSheet.create({
     flex: 0.75,
     marginBottom: RFPercentage(1),
   },
+  deleteButton: {
+    alignSelf: 'flex-end',
+    color: colors.secondary,
+    fontSize: RFValue(14),
+    fontWeight: 'bold',
+    opacity: 0.8,
+    paddingRight: RFPercentage(3),
+    textDecorationLine: 'underline',
+  },
   checkOut: {
     alignItems: 'center',
     backgroundColor: colors.white,

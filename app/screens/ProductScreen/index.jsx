@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { ImageBackground, Text, View } from 'react-native'
 
-import AsyncStorage from '@react-native-async-storage/async-storage'
-
 import AppButton from '../../components/common/AppButton'
 import CounterButton from '../../components/common/CounterButton'
 import FavoriteButton from '../../components/common/FavoriteButton'
 import SizeButton from '../../components/SizeButton'
 
 import { getAsync } from '../../utils/getItem'
+import { handleAddProduct } from '../../utils/addProduct'
 
 import colors from '../../config/colors'
 
@@ -30,30 +29,6 @@ const ProductScreen = ({ navigation, route }) => {
     call()
     return () => call()
   }, [])
-
-  const addingItem = async (listing, result, name) => {
-    const updatedItems = [listing]
-    if (name === 'favorites') setToggled(true)
-
-    let tempArr = [...result, ...updatedItems]
-    await AsyncStorage.setItem(name, JSON.stringify(tempArr))
-  }
-
-  const handleItem = async (listing, name) => {
-    try {
-      let result = await getAsync(name)
-      if (result.length == 0) {
-        addingItem(listing, result, name)
-      } else {
-        let isPresent = result.filter((item) => item.id === listing.id)
-        if (isPresent.length === 0) {
-          addingItem(listing, result, name)
-        }
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   useEffect(() => {
     navigation.getParent()?.setOptions({
@@ -83,7 +58,7 @@ const ProductScreen = ({ navigation, route }) => {
           <View style={styles.headerRight}>
             <View style={styles.favorite}>
               <FavoriteButton
-                handleFavorite={() => handleItem(listing, 'favorites')}
+                handleFavorite={() => handleAddProduct(listing, 'favorites', setToggled)}
                 toggled={toggled}
               />
             </View>
@@ -107,7 +82,7 @@ const ProductScreen = ({ navigation, route }) => {
           <Text style={styles.desc}>{listing.description}</Text>
         </View>
         <View style={{ alignItems: 'center' }}>
-          <AppButton title='ADD TO CART' onPress={() => handleItem(listing, 'cart')} />
+          <AppButton title='ADD TO CART' onPress={() => handleAddProduct(listing, 'cart')} />
         </View>
       </View>
     </View>
