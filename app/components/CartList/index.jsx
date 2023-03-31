@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Image, Text, View } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
@@ -23,6 +23,9 @@ const CartList = ({ cart, renderRightActions, setProduct }) => {
                 <Text style={styles.subContent}>Size: L</Text>
                 <Text style={styles.price}>{item.price}/-</Text>
               </View>
+            </View>
+            <View style={styles.lower}>
+              <Text style={styles.quantity}>x{item.quantity}</Text>
             </View>
           </Swipeable>
         </View>

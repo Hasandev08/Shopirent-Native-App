@@ -17,6 +17,7 @@ const ProductScreen = ({ navigation, route }) => {
   const listing = route.params
   const [toggled, setToggled] = useState(false)
   const [cartToggled, setCartToggled] = useState(false)
+  const [count, setCount] = useState(1)
 
   let call = async () => {
     let favoriteResult = await getAsync('favorites')
@@ -83,7 +84,7 @@ const ProductScreen = ({ navigation, route }) => {
         </View>
         <View style={styles.common}>
           <Text style={{ color: colors.secondary, fontSize: 14 }}>Select Quantity: </Text>
-          <CounterButton />
+          <CounterButton count={count} setCount={setCount} />
         </View>
         <View>
           <Text style={{ color: colors.secondary, fontSize: 14 }}>Description</Text>
@@ -93,7 +94,7 @@ const ProductScreen = ({ navigation, route }) => {
           {!cartToggled ? (
             <AppButton
               title='ADD TO CART'
-              onPress={() => handleAddProduct(listing, 'cart', setCartToggled)}
+              onPress={() => handleAddProduct(listing, 'cart', setCartToggled, count)}
             />
           ) : (
             <AppButton title='ADDED TO CART' buttonDisable={true} />

@@ -43,4 +43,10 @@ export const styles = StyleSheet.create({
     color: colors.primary,
     fontSize: RFValue(16),
   },
+  quantity: {
+    alignSelf: 'flex-end',
+    color: colors.red,
+    fontSize: RFValue(16),
+    paddingRight: RFPercentage(5),
+  },
 })

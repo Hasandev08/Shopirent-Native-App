@@ -19,8 +19,10 @@ const CartScreen = ({ navigation }) => {
 
   const cartList = async () => {
     const result = await AsyncStorage.getItem('cart')
+
     if (result) {
       let temp = JSON.parse(result)
+
       if (temp.length > 0) setCart(() => temp)
     }
   }

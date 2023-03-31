@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Text, TouchableOpacity, View } from 'react-native'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import { AntDesign } from '@expo/vector-icons'
 
@@ -8,8 +9,8 @@ import colors from '../../../config/colors'
 
 import { styles } from './style'
 
-const CounterButton = () => {
-  const [count, setCount] = useState(1)
+const CounterButton = ({ count, setCount }) => {
+  // const [count, setCount] = useState(1)
 
   const addCount = (val) => {
     val += 1
@@ -22,6 +23,14 @@ const CounterButton = () => {
       setCount(val)
     }
   }
+
+  // const updateList = async () => {
+  //   await AsyncStorage.setItem('quantity', JSON.stringify(count))
+  // }
+
+  // useEffect(() => {
+  //   updateList()
+  // }, [count])
 
   return (
     <View style={styles.counter}>
