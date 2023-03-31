@@ -13,8 +13,8 @@ import { displayDeleteAlert } from '../../utils/alert'
 import { styles } from './style'
 
 const CartScreen = ({ navigation }) => {
-  const [product, setProduct] = useState([])
   const [cart, setCart] = useState([])
+  const [product, setProduct] = useState([])
   const [totalPrice, setTotalPrice] = useState(0)
 
   const cartList = async () => {

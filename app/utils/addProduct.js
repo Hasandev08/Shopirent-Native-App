@@ -3,7 +3,7 @@ import { getAsync } from './getItem'
 
 const addingProduct = async (listing, result, name, setToggled) => {
   const updatedProducts = [listing]
-  if (name === 'favorites') setToggled(true)
+  setToggled(true)
 
   let newProducts = [...result, ...updatedProducts]
   await AsyncStorage.setItem(name, JSON.stringify(newProducts))

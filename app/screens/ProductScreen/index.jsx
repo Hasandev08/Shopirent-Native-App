@@ -91,7 +91,10 @@ const ProductScreen = ({ navigation, route }) => {
         </View>
         <View style={{ alignItems: 'center' }}>
           {!cartToggled ? (
-            <AppButton title='ADD TO CART' onPress={() => handleAddProduct(listing, 'cart')} />
+            <AppButton
+              title='ADD TO CART'
+              onPress={() => handleAddProduct(listing, 'cart', setCartToggled)}
+            />
           ) : (
             <AppButton title='ADDED TO CART' buttonDisable={true} />
           )}

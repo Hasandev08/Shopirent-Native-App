@@ -14,7 +14,6 @@ const SizeButton = () => {
         <TouchableWithoutFeedback
           key={item}
           onPress={() => {
-            handleSize(item)
             setSize(item)
           }}
         >
