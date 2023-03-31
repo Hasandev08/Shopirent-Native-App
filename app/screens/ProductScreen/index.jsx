@@ -18,6 +18,7 @@ const ProductScreen = ({ navigation, route }) => {
   const [toggled, setToggled] = useState(false)
   const [cartToggled, setCartToggled] = useState(false)
   const [count, setCount] = useState(1)
+  const [size, setSize] = useState('M')
 
   let call = async () => {
     let favoriteResult = await getAsync('favorites')
@@ -67,7 +68,7 @@ const ProductScreen = ({ navigation, route }) => {
           <View style={styles.headerRight}>
             <View style={styles.favorite}>
               <FavoriteButton
-                handleFavorite={() => handleAddProduct(listing, 'favorites', setToggled)}
+                handleFavorite={() => handleAddProduct(listing, 'favorites', setToggled, size)}
                 toggled={toggled}
               />
             </View>
@@ -79,7 +80,7 @@ const ProductScreen = ({ navigation, route }) => {
         <View style={styles.common}>
           <Text style={{ color: colors.secondary, fontSize: 14 }}>Size: </Text>
           <View style={styles.sizeButtons}>
-            <SizeButton />
+            <SizeButton size={size} setSize={setSize} />
           </View>
         </View>
         <View style={styles.common}>
@@ -94,7 +95,7 @@ const ProductScreen = ({ navigation, route }) => {
           {!cartToggled ? (
             <AppButton
               title='ADD TO CART'
-              onPress={() => handleAddProduct(listing, 'cart', setCartToggled, count)}
+              onPress={() => handleAddProduct(listing, 'cart', setCartToggled, size, count)}
             />
           ) : (
             <AppButton title='ADDED TO CART' buttonDisable={true} />

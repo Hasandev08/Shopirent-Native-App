@@ -20,7 +20,7 @@ const CartList = ({ cart, renderRightActions, setProduct }) => {
               <View style={styles.content}>
                 <Text style={styles.name}>{item.title}</Text>
                 <Text style={styles.subContent}>Color: Dark Grey</Text>
-                <Text style={styles.subContent}>Size: L</Text>
+                <Text style={styles.subContent}>Size: {item.size}</Text>
                 <Text style={styles.price}>{item.price}/-</Text>
               </View>
             </View>

@@ -6,8 +6,9 @@ import colors from '../../config/colors'
 
 import { styles } from './style'
 
-const SizeButton = () => {
-  const [size, setSize] = useState('M')
+const SizeButton = ({ size, setSize }) => {
+  // const [size, setSize] = useState('M')
+
   return (
     <>
       {['S', 'M', 'L', 'XL'].map((item) => (
