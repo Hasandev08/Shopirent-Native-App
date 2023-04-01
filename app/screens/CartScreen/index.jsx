@@ -22,15 +22,22 @@ const CartScreen = ({ navigation }) => {
 
     if (result) {
       let temp = JSON.parse(result)
-
       if (temp.length > 0) setCart(() => temp)
     }
+  }
+
+  const calcSubTotal = () => {
+    cart.forEach((item) => {
+      let temp = item.price * item.quantity
+      item.subTotal = temp
+      console.log(item.subTotal)
+    })
   }
 
   const calcTotal = () => {
     let temp = 0
     cart.forEach((item) => {
-      temp = temp + item.price
+      temp = temp + item.subTotal
     })
     setTotalPrice(temp)
   }
@@ -41,7 +48,8 @@ const CartScreen = ({ navigation }) => {
 
   useEffect(() => {
     calcTotal()
-  }, [cart])
+    calcSubTotal()
+  })
 
   useEffect(() => {
     navigation.getParent()?.setOptions({
@@ -93,7 +101,7 @@ const CartScreen = ({ navigation }) => {
       </ScrollView>
       <View style={styles.checkOut}>
         <View style={styles.subtotal}>
-          <Text style={styles.header}>Subtotal</Text>
+          <Text style={styles.header}>Total</Text>
           <Text style={styles.price}>{totalPrice}/-</Text>
         </View>
         <AppButton title='CHECK OUT' onPress={() => navigation.navigate('Payment')} />

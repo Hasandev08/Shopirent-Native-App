@@ -39,14 +39,27 @@ export const styles = StyleSheet.create({
     color: colors.secondary,
     fontSize: RFValue(10),
   },
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '65%',
+  },
   price: {
     color: colors.primary,
     fontSize: RFValue(16),
   },
   quantity: {
     alignSelf: 'flex-end',
-    color: colors.red,
+    color: colors.secondary,
     fontSize: RFValue(16),
     paddingRight: RFPercentage(5),
+  },
+  lower: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    height: RFPercentage(4),
+    justifyContent: 'space-between',
+    marginLeft: RFPercentage(27),
+    width: RFPercentage(18),
   },
 })

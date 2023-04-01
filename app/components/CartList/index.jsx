@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { Image, Text, View } from 'react-native'
 import Swipeable from 'react-native-gesture-handler/Swipeable'
 
 import { styles } from './style'
+import colors from '../../config/colors'
 
 const CartList = ({ cart, renderRightActions, setProduct }) => {
   return (
@@ -21,11 +22,15 @@ const CartList = ({ cart, renderRightActions, setProduct }) => {
                 <Text style={styles.name}>{item.title}</Text>
                 <Text style={styles.subContent}>Color: Dark Grey</Text>
                 <Text style={styles.subContent}>Size: {item.size}</Text>
-                <Text style={styles.price}>{item.price}/-</Text>
+                <View style={styles.footer}>
+                  <Text style={styles.price}>{item.price}/-</Text>
+                  <Text style={styles.quantity}>x{item.quantity}</Text>
+                </View>
               </View>
             </View>
             <View style={styles.lower}>
-              <Text style={styles.quantity}>x{item.quantity}</Text>
+              <Text style={{ color: colors.primary, fontWeight: 'bold' }}>Sub Total:</Text>
+              <Text style={{ color: colors.red, fontWeight: 'bold' }}>{item.subTotal}/-</Text>
             </View>
           </Swipeable>
         </View>

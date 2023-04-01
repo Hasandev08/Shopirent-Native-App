@@ -3,7 +3,7 @@ import { Image, Text, TouchableWithoutFeedback, View } from 'react-native'
 
 import { styles } from './style'
 
-const PopularItemList = ({ item, onPress }) => {
+const PopularItemList = ({ item, element, onPress }) => {
   return (
     <TouchableWithoutFeedback onPress={onPress}>
       <View>

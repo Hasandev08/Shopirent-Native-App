@@ -12,8 +12,8 @@ import { displayDeleteAlert } from '../../utils/alert.js'
 import { styles } from './style'
 
 const FavoritesScreen = ({ navigation }) => {
-  const [product, setProduct] = useState([])
   const [favorites, setFavorites] = useState([])
+  const [product, setProduct] = useState([])
 
   const favoriteList = async () => {
     const result = await AsyncStorage.getItem('favorites')

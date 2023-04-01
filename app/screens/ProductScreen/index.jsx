@@ -15,10 +15,10 @@ import { styles } from './style'
 
 const ProductScreen = ({ navigation, route }) => {
   const listing = route.params
-  const [toggled, setToggled] = useState(false)
   const [cartToggled, setCartToggled] = useState(false)
   const [count, setCount] = useState(1)
   const [size, setSize] = useState('M')
+  const [toggled, setToggled] = useState(false)
 
   let call = async () => {
     let favoriteResult = await getAsync('favorites')
