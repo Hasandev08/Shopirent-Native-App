@@ -2,7 +2,7 @@ export const productList = [
   {
     id: '1',
     title: 'Bridal Dress',
-    image: require('../../assets/image1.jpg'),
+    image: require('../assets/image1.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'women',
@@ -15,7 +15,7 @@ export const productList = [
   {
     id: '2',
     title: 'Barat Dress',
-    image: require('../../assets/image3.jpg'),
+    image: require('../assets/image3.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'women',
@@ -28,7 +28,7 @@ export const productList = [
   {
     id: '3',
     title: 'Mayun Dress',
-    image: require('../../assets/image4.jpg'),
+    image: require('../assets/image4.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'women',
@@ -41,7 +41,7 @@ export const productList = [
   {
     id: '4',
     title: 'Behtareen Dress',
-    image: require('../../assets/image2.jpg'),
+    image: require('../assets/image2.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'women',
@@ -54,7 +54,7 @@ export const productList = [
   {
     id: '5',
     title: 'Dress',
-    image: require('../../assets/men1.jpg'),
+    image: require('../assets/men1.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'men',
@@ -67,7 +67,7 @@ export const productList = [
   {
     id: '6',
     title: 'Dress',
-    image: require('../../assets/men2.jpg'),
+    image: require('../assets/men2.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'men',
@@ -80,7 +80,7 @@ export const productList = [
   {
     id: '7',
     title: 'Dress',
-    image: require('../../assets/men3.jpg'),
+    image: require('../assets/men3.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'men',
@@ -93,7 +93,7 @@ export const productList = [
   {
     id: '8',
     title: 'Dress',
-    image: require('../../assets/men4.jpg'),
+    image: require('../assets/men4.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'men',
@@ -106,7 +106,7 @@ export const productList = [
   {
     id: '9',
     title: 'Dress',
-    image: require('../../assets/kid1.jpg'),
+    image: require('../assets/kid1.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'kids',
@@ -119,7 +119,7 @@ export const productList = [
   {
     id: '10',
     title: 'Dress',
-    image: require('../../assets/kid2.jpg'),
+    image: require('../assets/kid2.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'kids',
@@ -132,7 +132,7 @@ export const productList = [
   {
     id: '11',
     title: 'Dress',
-    image: require('../../assets/kid3.jpg'),
+    image: require('../assets/kid3.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'kids',
@@ -145,7 +145,7 @@ export const productList = [
   {
     id: '12',
     title: 'Dress',
-    image: require('../../assets/kid4.jpg'),
+    image: require('../assets/kid4.jpg'),
     price: 1000,
     rating: 4.9,
     category: 'kids',

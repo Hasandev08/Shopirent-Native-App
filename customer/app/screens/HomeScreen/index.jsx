@@ -1,44 +1,42 @@
-import React, { useEffect, useState } from 'react'
-import { Image, ScrollView, Text, TouchableWithoutFeedback, View } from 'react-native'
+import React from 'react'
+import {
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native'
 
+import Categories from '../../components/Categories'
 import PopularItemList from '../../components/PopularItemList'
 import SaleItemList from '../../components/SaleItemList'
 
+import { categories } from '../../config/categories'
 import { productList } from '../../config/productList'
 
 import { styles } from './style'
 
-function CategoryScreen({ navigation, route }) {
-  const listing = route.params
-  const [list, setList] = useState(productList)
-  let tempList = []
-
-  useEffect(() => {
-    let arr = ['women', 'men', 'kids']
-    arr.forEach((item) => {
-      if (listing.category === item) {
-        tempList = productList.filter((it) => it.category === item)
-        setList(tempList)
-      }
-    })
-  }, [])
-
+function HomeScreen({ navigation }) {
   return (
-    <ScrollView scrollEnabled style={styles.homeContainer}>
+    <ScrollView style={styles.homeContainer}>
+      <View style={styles.navBar}>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+          <View style={styles.bar}>
+            <Text style={styles.barText}>Login/Signup</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
       <View style={styles.header}>
         <Text style={styles.heading}>Category</Text>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Cart')}>
-          <Image source={require('../../../assets/cart.png')} />
+          <Image source={require('../../assets/cart.png')} />
         </TouchableWithoutFeedback>
       </View>
-      {/* {categories.map((item) => (
-        <View key={item.id.toString()}>
-          <Categories title={item.title} image={item.image} />
-        </View>
-      ))} */}
+      <Categories categories={categories} navigation={navigation} />
       <Text style={styles.homeHeading}>Sale Discount</Text>
       <ScrollView horizontal>
-        {list.map((item) => (
+        {productList.map((item) => (
           <View key={item.id.toString()}>
             <SaleItemList item={item} onPress={() => navigation.navigate('Product', item)} />
           </View>
@@ -46,7 +44,7 @@ function CategoryScreen({ navigation, route }) {
       </ScrollView>
       <Text style={styles.homeHeading}>Popular</Text>
       <ScrollView>
-        {list.map((item) => (
+        {productList.map((item) => (
           <View key={item.id.toString()}>
             <PopularItemList item={item} onPress={() => navigation.navigate('Product', item)} />
           </View>
@@ -56,4 +54,4 @@ function CategoryScreen({ navigation, route }) {
   )
 }
 
-export default CategoryScreen
+export default HomeScreen
