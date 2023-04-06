@@ -22,27 +22,4 @@ export const styles = StyleSheet.create({
     paddingRight: RFPercentage(3),
     textDecorationLine: 'underline',
   },
-  checkOut: {
-    alignItems: 'center',
-    backgroundColor: colors.white,
-    borderTopLeftRadius: RFValue(15),
-    borderTopRightRadius: RFValue(15),
-    elevation: 10,
-    flex: 0.25,
-    justifyContent: 'center',
-  },
-  subtotal: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: RFPercentage(1.5),
-    width: RFPercentage(42),
-  },
-  header: {
-    color: colors.primary,
-    fontSize: RFValue(14),
-  },
-  price: {
-    color: colors.red,
-    fontSize: RFValue(18),
-  },
 })
