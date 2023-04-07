@@ -1,12 +1,8 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import ReturnList from '../../components/ReturnList'
 
 const ReturnScreen = () => {
-  return (
-    <View>
-      <Text>Return Screen</Text>
-    </View>
-  )
+  return <ReturnList />
 }
 
 export default ReturnScreen

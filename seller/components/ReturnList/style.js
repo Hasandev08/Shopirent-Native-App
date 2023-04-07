@@ -57,14 +57,11 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     height: RFPercentage(7),
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     marginLeft: RFPercentage(30),
-    width: RFPercentage(15),
+    width: '20%',
   },
-  approved: {
-    color: 'green',
-    fontSize: RFValue(14),
-    fontWeight: 'bold',
-    marginLeft: RFPercentage(5),
+  pending: {
+    color: 'rgb(253, 218, 13)',
   },
 })
