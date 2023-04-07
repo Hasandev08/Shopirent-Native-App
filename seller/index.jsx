@@ -1,11 +1,16 @@
 import { StyleSheet, View } from 'react-native'
 
-import ReturnScreen from './screens/ReturnScreen'
+import TabSellerNavigator from './navigation/TabSellerNavigator'
+import navigationTheme from '../customer/app/navigation/navigationTheme'
+
+import { NavigationContainer } from '@react-navigation/native'
 
 export default function Seller() {
   return (
     <View style={styles.background}>
-      <ReturnScreen />
+      <NavigationContainer theme={navigationTheme}>
+        <TabSellerNavigator />
+      </NavigationContainer>
     </View>
   )
 }
