@@ -1,27 +1,24 @@
 export const accountList = [
   {
     id: '1',
-    icon: require('../assets/location.png'),
-    title: 'My Address',
+    icon: require('../assets/listOrder.png'),
+    title: 'My Orders',
+    route: 'OrderScreen',
   },
   {
     id: '2',
-    icon: require('../assets/listOrder.png'),
-    title: 'My Order',
-  },
-  {
-    id: '3',
     icon: require('../assets/love.png'),
     title: 'Favorites',
     route: 'FavoritesScreen',
   },
   {
-    id: '4',
+    id: '3',
     icon: require('../assets/card.png'),
-    title: 'Payment',
+    title: 'Cart',
+    route: 'Cart',
   },
   {
-    id: '5',
+    id: '4',
     icon: require('../assets/settings.png'),
     title: 'Settings',
   },

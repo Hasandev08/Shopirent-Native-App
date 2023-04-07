@@ -8,7 +8,7 @@ import colors from './customer/app/config/colors'
 export default function App() {
   return (
     <View style={styles.background}>
-      <Seller />
+      <Customer />
     </View>
   )
 }

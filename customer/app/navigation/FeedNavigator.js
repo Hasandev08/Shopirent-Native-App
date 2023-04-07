@@ -11,6 +11,7 @@ import ProductScreen from '../screens/ProductScreen'
 import SignUpScreen from '../screens/SignUpScreen'
 
 import { createStackNavigator } from '@react-navigation/stack'
+import OrderScreen from '../screens/OrderScreen'
 
 const Stack = createStackNavigator()
 
@@ -41,6 +42,20 @@ const FeedNavigator = () => (
       component={FavoritesScreen}
       options={{
         title: 'My Favorites',
+        headerStyle: {
+          backgroundColor: 'rgb(246, 246, 247)',
+        },
+        headerTintColor: 'rgb(49, 78, 82)',
+        headerTitleStyle: {
+          color: 'rgb(49, 78, 82)',
+        },
+      }}
+    />
+    <Stack.Screen
+      name='OrderScreen'
+      component={OrderScreen}
+      options={{
+        title: 'My Orders',
         headerStyle: {
           backgroundColor: 'rgb(246, 246, 247)',
         },
