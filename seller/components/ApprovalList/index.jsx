@@ -1,29 +1,63 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text, View } from 'react-native'
 
 import RoundButton from '../common/RoundButton'
+import { displayAlert } from '../../../customer/app/utils/alert'
 
 import { styles } from './style'
 
 const ApprovalList = () => {
+  const [approved, setApproved] = useState(false)
+
   return (
     <View style={styles.container}>
       <View style={styles.upper}>
-        {/* <Image source={item.image} style={styles.image} resizeMode='contain' /> */}
-        <View style={styles.image}></View>
-        <View style={styles.content}>
+        <View style={styles.left}>
           <Text style={styles.name}>Hello</Text>
           <Text style={styles.subContent}>Color: Dark Grey</Text>
           <Text style={styles.subContent}>Size: L</Text>
-          <View style={styles.footer}>
-            <Text style={styles.price}>1000/-</Text>
-            <Text style={styles.quantity}>x1</Text>
-          </View>
+          <Text style={styles.subContent}>x1</Text>
+          <Text style={styles.price}>1000/-</Text>
+        </View>
+        <View style={styles.right}>
+          <Text style={styles.name}>Hasan</Text>
+          <Text style={styles.subContent}>Address</Text>
+          <Text style={styles.subContent}>03153260203</Text>
         </View>
       </View>
       <View style={styles.lower}>
-        <RoundButton name='check' color='green' />
-        <RoundButton name='close' color='red' />
+        {!approved ? (
+          <>
+            <RoundButton
+              name='check'
+              color='green'
+              onPress={() =>
+                displayAlert(
+                  'Are you sure?',
+                  'This action will place the order',
+                  'Accept',
+                  () => setApproved(true),
+                  'Cancel'
+                )
+              }
+            />
+            <RoundButton
+              name='close'
+              color='red'
+              onPress={() =>
+                displayAlert(
+                  'Are you sure?',
+                  'This action will cancel the order',
+                  'Delete',
+                  () => console.log('Order Cancelled'),
+                  'Cancel'
+                )
+              }
+            />
+          </>
+        ) : (
+          <Text style={styles.approved}>Approved</Text>
+        )}
       </View>
     </View>
   )

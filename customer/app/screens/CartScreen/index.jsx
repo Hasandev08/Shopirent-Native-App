@@ -7,7 +7,7 @@ import CartList from '../../components/CartList'
 import DeleteAction from '../../components/common/DeleteAction'
 
 import { deleteProduct, handleDeleteAll } from '../../utils/deleteProduct'
-import { displayDeleteAlert } from '../../utils/alert'
+import { displayAlert } from '../../utils/alert'
 
 import { styles } from './style'
 
@@ -57,7 +57,7 @@ const CartScreen = ({ navigation }) => {
         {cart.length > 0 && (
           <TouchableWithoutFeedback
             onPress={() =>
-              displayDeleteAlert(
+              displayAlert(
                 'Are you sure?',
                 'This action will delete all your products!',
                 'Delete',
@@ -75,7 +75,7 @@ const CartScreen = ({ navigation }) => {
           renderRightActions={() => (
             <DeleteAction
               onPress={() =>
-                displayDeleteAlert(
+                displayAlert(
                   'Are you sure?',
                   'This action will delete your product!',
                   'Delete',

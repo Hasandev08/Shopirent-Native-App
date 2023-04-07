@@ -7,7 +7,7 @@ import DeleteAction from '../../components/common/DeleteAction'
 import FavoriteList from '../../components/FavoriteList'
 
 import { deleteProduct, handleDeleteAll } from '../../utils/deleteProduct'
-import { displayDeleteAlert } from '../../utils/alert.js'
+import { displayAlert } from '../../utils/alert.js'
 
 import { styles } from './style'
 
@@ -33,7 +33,7 @@ const FavoritesScreen = ({ navigation }) => {
         {favorites.length > 0 && (
           <TouchableWithoutFeedback
             onPress={() =>
-              displayDeleteAlert(
+              displayAlert(
                 'Are you sure?',
                 'This action will delete all your products!',
                 'Delete',
@@ -53,7 +53,7 @@ const FavoritesScreen = ({ navigation }) => {
             renderRightActions={() => (
               <DeleteAction
                 onPress={() =>
-                  displayDeleteAlert(
+                  displayAlert(
                     'Are you sure?',
                     'This action will delete your product!',
                     'Delete',

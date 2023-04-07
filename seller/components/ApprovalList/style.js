@@ -17,19 +17,16 @@ export const styles = StyleSheet.create({
     borderBottomWidth: RFValue(1),
     flexDirection: 'row',
     height: RFPercentage(18),
-    width: '100%',
+    justifyContent: 'space-around',
+    width: '70%',
   },
-  image: {
-    backgroundColor: 'rgb(228,228,228)',
-    borderRadius: RFValue(12),
-    height: RFPercentage(15),
-    marginLeft: RFPercentage(3),
-    width: RFPercentage(15),
-  },
-  content: {
+  left: {
     height: RFPercentage(14),
     justifyContent: 'space-between',
-    marginLeft: RFValue(10),
+  },
+  right: {
+    height: RFPercentage(14),
+    justifyContent: 'space-between',
   },
   name: {
     color: colors.primary,
@@ -61,5 +58,11 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: RFPercentage(30),
     width: RFPercentage(15),
+  },
+  approved: {
+    color: 'green',
+    fontSize: RFValue(14),
+    fontWeight: 'bold',
+    marginLeft: RFPercentage(5),
   },
 })

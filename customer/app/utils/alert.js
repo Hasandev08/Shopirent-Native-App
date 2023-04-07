@@ -1,6 +1,6 @@
 import { Alert } from 'react-native'
 
-export const displayDeleteAlert = (question, notification, text1, fun, text2) => {
+export const displayAlert = (question, notification, text1, fun, text2) => {
   Alert.alert(
     question,
     notification,
