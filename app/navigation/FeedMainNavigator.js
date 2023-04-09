@@ -6,13 +6,15 @@ import Seller from '../seller'
 import ForgotPassword from '../screens/ForgotPassword'
 import LoginScreen from '../screens/LoginScreen'
 import SignUpScreen from '../screens/SignUpScreen'
+import WelcomeScreen from '../screens/WelcomeScreen'
 
 import { createStackNavigator } from '@react-navigation/stack'
 
 const Stack = createStackNavigator()
 
 const FeedMainNavigator = () => (
-  <Stack.Navigator initialRouteName='Login'>
+  <Stack.Navigator initialRouteName='Welcome'>
+    <Stack.Screen name='Welcome' component={WelcomeScreen} options={{ headerShown: false }} />
     <Stack.Screen name='Login' component={LoginScreen} options={{ headerShown: false }} />
     <Stack.Screen name='Signup' component={SignUpScreen} options={{ headerShown: false }} />
     <Stack.Screen
