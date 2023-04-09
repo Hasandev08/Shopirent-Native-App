@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ImageBackground, Text, View } from 'react-native'
 
-import AppButton from '../../components/common/AppButton'
+import AppButton from '../../../components/AppButton'
 import CounterButton from '../../components/common/CounterButton'
 import FavoriteButton from '../../components/common/FavoriteButton'
 import SizeButton from '../../components/SizeButton'

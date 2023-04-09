@@ -2,7 +2,7 @@ import React from 'react'
 import { ScrollView, Text, TextInput, View } from 'react-native'
 
 import AddressDisplay from '../../components/AddressDisplay'
-import AppButton from '../../components/common/AppButton'
+import AppButton from '../../../components/AppButton'
 import PaymentItemList from '../../components/PaymentItemList'
 import PaymentMethod from '../../components/PaymentMethod'
 

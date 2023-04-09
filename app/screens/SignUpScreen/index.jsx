@@ -28,6 +28,9 @@ const validationSchema = Yup.object().shape({
   confirmPassword: Yup.string()
     .oneOf([Yup.ref('password')], 'Passwords do not match')
     .required('Confirm password is required'),
+  option: Yup.string()
+    .matches(/\w*((buyer|Buyer)|(seller|Seller))\w*/, 'Choose either buyer or seller')
+    .required('Required'),
 })
 
 const SignUpScreen = ({ navigation }) => (
@@ -47,11 +50,17 @@ const SignUpScreen = ({ navigation }) => (
             email: '',
             password: '',
             confirmPassword: '',
+            option: '',
           }}
           onSubmit={(values) => console.log(values)}
           validationSchema={validationSchema}
         >
-          <AppFormField text='Name' name='fullName' textContentType='name' placeholder='Name' />
+          <AppFormField
+            text='Name'
+            name='fullName'
+            textContentType='name'
+            placeholder='Full Name'
+          />
           <AppFormField
             keyboardType='phone-pad'
             name='phoneNumber'
@@ -85,6 +94,12 @@ const SignUpScreen = ({ navigation }) => (
             secureTextEntry
             text='Confirm Password'
             textContentType='password'
+          />
+          <AppFormField
+            text='Option'
+            name='option'
+            textContentType='text'
+            placeholder='Buyer or Seller'
           />
           <View style={styles.signupButton}>
             <SubmitButton title='Signup' />
