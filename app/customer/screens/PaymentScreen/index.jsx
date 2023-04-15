@@ -8,7 +8,9 @@ import PaymentMethod from '../../components/PaymentMethod'
 
 import { styles } from './style'
 
-const PaymentScreen = () => {
+const PaymentScreen = ({ route }) => {
+  const listing = route.params
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.content}>
@@ -20,14 +22,20 @@ const PaymentScreen = () => {
           number='03153260203'
         />
         <View>
-          <PaymentItemList name="Levi's Jeans" color='Red' size='L' price='3000' quantity='2' />
+          <PaymentItemList
+            name={listing.title}
+            color='Red'
+            size={listing.size}
+            price={listing.subTotal}
+            quantity={listing.quantity}
+          />
         </View>
         <View style={styles.description}>
           <Text style={styles.descriptionHeading}>Add Description</Text>
           <TextInput editable multiline numberOfLines={4} style={styles.textInput} />
         </View>
         <View>
-          <PaymentMethod />
+          <PaymentMethod subTotal={listing.subTotal} />
         </View>
       </ScrollView>
       <View style={styles.footer}>

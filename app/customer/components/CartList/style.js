@@ -31,6 +31,15 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: RFValue(10),
   },
+  upperContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: RFPercentage(27),
+  },
+  details: {
+    height: RFPercentage(10),
+    justifyContent: 'space-between',
+  },
   name: {
     color: colors.primary,
     fontSize: RFValue(15),
@@ -38,6 +47,14 @@ export const styles = StyleSheet.create({
   subContent: {
     color: colors.secondary,
     fontSize: RFValue(10),
+  },
+  checkoutButton: {
+    alignItems: 'center',
+    backgroundColor: colors.primary,
+    borderRadius: RFValue(10),
+    height: RFPercentage(4),
+    justifyContent: 'center',
+    width: RFPercentage(10),
   },
   footer: {
     flexDirection: 'row',

@@ -28,16 +28,14 @@ const CartScreen = ({ navigation }) => {
     cart.forEach((item) => {
       let temp = item.price * item.quantity
       item.subTotal = temp
+      // console.log(item)
     })
   }
 
   useEffect(() => {
     cartList()
-  }, [])
-
-  useEffect(() => {
     calcSubTotal()
-  })
+  }, [])
 
   useEffect(() => {
     navigation.getParent()?.setOptions({
@@ -72,6 +70,7 @@ const CartScreen = ({ navigation }) => {
         <CartList
           cart={cart}
           setProduct={setProduct}
+          navigation={navigation}
           renderRightActions={() => (
             <DeleteAction
               onPress={() =>

@@ -3,7 +3,7 @@ import { Text, View } from 'react-native'
 
 import { styles } from './style'
 
-const PaymentMethod = () => {
+const PaymentMethod = ({ subTotal }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -12,7 +12,7 @@ const PaymentMethod = () => {
       <View style={styles.footer}>
         <View style={styles.bar}>
           <Text style={{ color: 'rgb(87, 99, 111)' }}>Subtotal for products</Text>
-          <Text style={{ color: 'rgb(87, 99, 111)' }}>3000</Text>
+          <Text style={{ color: 'rgb(87, 99, 111)' }}>{subTotal}</Text>
         </View>
         <View style={styles.bar}>
           <Text style={{ color: 'rgb(87, 99, 111)' }}>Subtotal for shipping</Text>
